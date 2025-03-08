@@ -6,5 +6,10 @@ shanon<-function(abundancias){
 }
 #según yo ese ya está bien, volví a tratar con uno de los intentos que hicimos y si salió un número más bajo, pero pueden probarlo xfa
 
+simpson<-function(abundancias){
+  prob<-abundancias/sum(abundancias)
+  sum(prob*prob)
+}
+#índice de simpson, si funciona
 
 ##Ejercicio Luna
