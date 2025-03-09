@@ -1,0 +1,9 @@
+---
+title: "Análisis de diversidad de especies en sitios simulados"
+author: "Daniela Villanueva, Estrella Segobia, David Flores"
+date: "2025-03-10"
+output: html_document
+---
+
+# Introducción 
+En esta práctica exploraremos la diversidad de especies simulada en diferentes sitios, representados por bolsas con fichas de colores que simulan diferentes especies. Cada color representa una especie distinta, y la frecuencia de cada ficha es indicativa de la abundancia de esa especie en el sitio.
