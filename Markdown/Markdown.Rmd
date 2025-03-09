@@ -105,3 +105,6 @@ Las curvas de abundancia muestran una alta variabilidad entre bolsas, reflejando
 
 
 ## Contribuciones del Equipo 
+1. Estrella Segobia: Cargó y preparó los datos para el análisis, calculó el análisis para la diversidad alfa
+2. David Flores: Calculó el análisis de diversidad beta e hizo las matrices
+3. Daniela Villanueva: Redactó la introducción, contestó preguntas, generó las gráficas de abundancia, 
