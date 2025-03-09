@@ -8,6 +8,17 @@ output: html_document
 # Introducción 
 En esta práctica exploraremos la diversidad de especies simulada en diferentes sitios, representados por bolsas con fichas de colores que simulan diferentes especies. Cada color representa una especie distinta, y la frecuencia de cada ficha es indicativa de la abundancia de esa especie en el sitio.
 
+La diversidad de especies es un aspecto fundamental en los estudios ecológicos, y su análisis permite evaluar la estructura y composición de comunidades biológicas. La diversidad alfa mide la variabilidad dentro de un solo sitio y se cuantifica mediante diferentes índices. La entropía de Shannon es una de las métricas más utilizadas para medir la diversidad alfa, combinando riqueza y equitatividad de especies (Gauthier & Derôme, 2020, 2021). Sin embargo, un solo valor de Shannon puede representar múltiples combinaciones de riqueza y equitatividad, lo que podría ocultar diferencias ecológicas importantes.
+
+Los índices de diversidad buscan capturar tanto la riqueza como la equitatividad de especies en las comunidades biológicas. El método de Pielou, que representa las abundancias relativas de las tres especies más comunes, ha sido mejorado para acomodar datos de series temporales y relaciones en n dimensiones (Clark, 1992). El índice de Simpson es ampliamente utilizado, aunque tiene limitaciones (Sagar & Sharma, 2012). La diversidad de Simpson, junto con la riqueza de especies y la información de Shannon, son las medidas no paramétricas más empleadas, cada una con sesgos de muestreo y varianza distintos (Lande, 1996). A diferencia de otros índices, el de Simpson posee un estimador no sesgado y puede descomponerse en componentes de diversidad alfa y beta (Lande, 1996). Tanto el índice de Shannon como el de Gini-Simpson son comúnmente utilizados, aunque presentan limitaciones en su interpretación y comparación (Jost & Oreja, 2012; Jost, 2006). 
+
+La diversidad beta mide los cambios en la composición de especies entre sitios en distintas escalas espaciales y temporales, y es un enfoque clave en la investigación sobre biodiversidad (Chen et al., 2010). Se han desarrollado múltiples índices para cuantificar la diversidad beta, entre los cuales los de Jaccard y Sørensen son los más utilizados (Chen et al., 2010; Cardoso et al., 2015).
+
+Para evaluar la riqueza de especies considerando diferencias en el tamaño de la muestra, se utiliza la rarefacción, una técnica estadística que permite comparar diversidades comunitarias y estimar la riqueza de especies (Gart et al., 1982). Esta técnica genera curvas de rarefacción, que representan la riqueza esperada de especies en función del tamaño de la muestra (Simberloff, 1978). Estas curvas son herramientas clave para analizar la diversidad taxonómica, evaluar la heterogeneidad ambiental y comparar comunidades biológicas (Gart et al., 1982).
+
+En esta práctica, se calcularon los índices de Shannon, Pielou, Simpson, Simpson inverso, Gini y Chao para estimar la diversidad alfa. Además, se generaron curvas de rarefacción y gráficos de abundancia ordenada para cada sitio. Finalmente, se calculó la diversidad beta mediante los índices de Jaccard y Bray-Curtis, con el objetivo de analizar las diferencias en la composición de especies entre los sitios simulados.
+
+
 
 ## Gráficas de Abundancia 
 
@@ -35,5 +46,38 @@ Las distribuciones de rango abundancia (DRA) son una herramienta poderosa para a
 ![Texto alternativo](graficas_abundancias/bolsa_vr.jpeg)
 
 
-### Gráfica de abundancias de la Bolsa Happuy Face
+### Gráfica de abundancias de la Bolsa Happy Face
 ![Texto alternativo](graficas_abundancias/bolsa_happyfac.jpeg)
+
+
+### Discusión 
+
+
+### Preguntas
+1. ¿Cómo varían los valores de los índices entre los sitios? ¿Qué diferencias resaltan?
+2. ¿Cuál índice es más sensible a especies raras?
+3. ¿Por qué el índice de Pielou nos da información sobre la equitatividad de la comunidad?
+4. ¿Cuál sitio parece tener mayor diversidad según la curva de rarefacción? ¿Por qué?
+5. ¿Cómo afecta el tamaño de la muestra en la forma de la curva?
+6. ¿Cuál de estos índices es más sensible a la diferencia en abundancias?
+7. ¿Qué interpretación ecológica tienen las diferencias entre sitios?
+8. ¿Cómo interpretas la forma de las curvas de abundancia?
+9. ¿Qué implicaciones tienen para la dominancia de especies?
+10. ¿Qué patrones generales observaste en la diversidad entre los sitios?
+11. ¿Cuál índice te pareció más útil y por qué?
+12. ¿Cómo podrías aplicar este análisis en estudios ecológicos reales?
+
+
+### Bibliografía 
+Foster, S. D., & Dunstan, P. K. (2010). The analysis of biodiversity using rank abundance distributions. Biometrics, 66(1), 186-195.
+Dunstan, P. K., Bax, N. J., Foster, S. D., Williams, A., & Althaus, F. (2012). Identifying hotspots for biodiversity management using rank abundance distributions. Diversity and Distributions, 18(1), 22-32.
+Gauthier, J., & Derome, N. (2020). Evenness-richness scatter plots: a graphical, intuitive approach to alpha diversity analysis. bioRxiv, 2020-09.
+Clark, M. J. R. (1992). Enhancement to the Pielou Method for estimating the diversity of aquatic communities. Environmental toxicology and chemistry, 11(11), 1559-1565.
+Sagar, R., & Sharma, G. P. (2012). Measurement of alpha diversity using Simpson index (1/Lamda): the jeopardy. Environmental Skeptics and Critics, 1(1), 23.
+Lande, R. (1996). Statistics and partitioning of species diversity, and similarity among multiple communities. Oikos, 5-13.
+Jost, L., & González-Oreja, J. (2012). Midiendo la diversidad biológica: más allá del índice de Shannon. Acta zoológica lilloana, 3-14.
+Jost, L. (2006). Entropy and diversity. Oikos, 113(2), 363-375.
+Chen, S., Ouyang, Z., Xu, W., & Xiao, Y. (2010). A review of beta diversity studies. Biodiversity Science, 18(4), 323-335.
+Cardoso, P., Rigal, F., & Carvalho, J. C. (2015). BAT–Biodiversity Assessment Tools, an R package for the measurement and estimation of alpha and beta taxon, phylogenetic and functional diversity. Methods in Ecology and Evolution, 6(2), 232-236.
+Gart, J. J., Siegel, A. F., & German, R. Z. (1982). Rarefaction and taxonomic diversity. Biometrics, 235-241.
+Simberloff, D. (1978). Use of rarefaction and related methods in ecology. In Biological data in water pollution assessment: quantitative and statistical analyses. ASTM International.
