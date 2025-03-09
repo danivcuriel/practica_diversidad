@@ -18,6 +18,23 @@ Para evaluar la riqueza de especies considerando diferencias en el tamaño de la
 
 En esta práctica, se calcularon los índices de Shannon, Pielou, Simpson, Simpson inverso, Gini y Chao para estimar la diversidad alfa. Además, se generaron curvas de rarefacción y gráficos de abundancia ordenada para cada sitio. Finalmente, se calculó la diversidad beta mediante los índices de Jaccard y Bray-Curtis, con el objetivo de analizar las diferencias en la composición de especies entre los sitios simulados.
 
+## Visualización de datos 
+
+```{r, message=FALSE, warning=FALSE}
+# CARGAR DATOS
+library(tidyverse)
+abundancias <- read_csv("datos_crudos/abundancias.csv")
+abundancias
+```
+
+
+
+## Índices de diversidad alfa
+
+
+## Índices de diversidad beta
+
+## Curvas de Rarefacción
 
 
 ## Gráficas de Abundancia 
@@ -69,15 +86,18 @@ Las distribuciones de rango abundancia (DRA) son una herramienta poderosa para a
 
 
 ### Bibliografía 
-Foster, S. D., & Dunstan, P. K. (2010). The analysis of biodiversity using rank abundance distributions. Biometrics, 66(1), 186-195.
-Dunstan, P. K., Bax, N. J., Foster, S. D., Williams, A., & Althaus, F. (2012). Identifying hotspots for biodiversity management using rank abundance distributions. Diversity and Distributions, 18(1), 22-32.
-Gauthier, J., & Derome, N. (2020). Evenness-richness scatter plots: a graphical, intuitive approach to alpha diversity analysis. bioRxiv, 2020-09.
-Clark, M. J. R. (1992). Enhancement to the Pielou Method for estimating the diversity of aquatic communities. Environmental toxicology and chemistry, 11(11), 1559-1565.
-Sagar, R., & Sharma, G. P. (2012). Measurement of alpha diversity using Simpson index (1/Lamda): the jeopardy. Environmental Skeptics and Critics, 1(1), 23.
-Lande, R. (1996). Statistics and partitioning of species diversity, and similarity among multiple communities. Oikos, 5-13.
-Jost, L., & González-Oreja, J. (2012). Midiendo la diversidad biológica: más allá del índice de Shannon. Acta zoológica lilloana, 3-14.
-Jost, L. (2006). Entropy and diversity. Oikos, 113(2), 363-375.
-Chen, S., Ouyang, Z., Xu, W., & Xiao, Y. (2010). A review of beta diversity studies. Biodiversity Science, 18(4), 323-335.
-Cardoso, P., Rigal, F., & Carvalho, J. C. (2015). BAT–Biodiversity Assessment Tools, an R package for the measurement and estimation of alpha and beta taxon, phylogenetic and functional diversity. Methods in Ecology and Evolution, 6(2), 232-236.
-Gart, J. J., Siegel, A. F., & German, R. Z. (1982). Rarefaction and taxonomic diversity. Biometrics, 235-241.
-Simberloff, D. (1978). Use of rarefaction and related methods in ecology. In Biological data in water pollution assessment: quantitative and statistical analyses. ASTM International.
+- Foster, S. D., & Dunstan, P. K. (2010). The analysis of biodiversity using rank abundance distributions. Biometrics, 66(1), 186-195.
+- Dunstan, P. K., Bax, N. J., Foster, S. D., Williams, A., & Althaus, F. (2012). Identifying hotspots for biodiversity management using rank abundance distributions. Diversity and Distributions, 18(1), 22-32.
+- Gauthier, J., & Derome, N. (2020). Evenness-richness scatter plots: a graphical, intuitive approach to alpha diversity analysis. bioRxiv, 2020-09.
+- Clark, M. J. R. (1992). Enhancement to the Pielou Method for estimating the diversity of aquatic communities. Environmental toxicology and chemistry, 11(11), 1559-1565.
+- Sagar, R., & Sharma, G. P. (2012). Measurement of alpha diversity using Simpson index (1/Lamda): the jeopardy. Environmental Skeptics and Critics, 1(1), 23.
+- Lande, R. (1996). Statistics and partitioning of species diversity, and similarity among multiple communities. Oikos, 5-13.
+- Jost, L., & González-Oreja, J. (2012). Midiendo la diversidad biológica: más allá del índice de Shannon. Acta zoológica lilloana, 3-14.
+- Jost, L. (2006). Entropy and diversity. Oikos, 113(2), 363-375.
+- Chen, S., Ouyang, Z., Xu, W., & Xiao, Y. (2010). A review of beta diversity studies. Biodiversity Science, 18(4), 323-335.
+- Cardoso, P., Rigal, F., & Carvalho, J. C. (2015). BAT–Biodiversity Assessment Tools, an R package for the measurement and estimation of alpha and beta taxon, phylogenetic and functional diversity. Methods in Ecology and Evolution, 6(2), 232-236.
+- Gart, J. J., Siegel, A. F., & German, R. Z. (1982). Rarefaction and taxonomic diversity. Biometrics, 235-241.
+- Simberloff, D. (1978). Use of rarefaction and related methods in ecology. In Biological data in water pollution assessment: quantitative and statistical analyses. ASTM International.
+
+
+## Contribuciones del Equipo 
