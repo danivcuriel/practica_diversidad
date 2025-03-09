@@ -1,0 +1,20 @@
+---
+title: "Análisis de diversidad de especies en sitios simulados"
+author: "Daniela Villanueva, Estrella Segobia, David Flores"
+date: "2025-03-10"
+output: html_document
+---
+
+# Introducción 
+En esta práctica exploraremos la diversidad de especies simulada en diferentes sitios, representados por bolsas con fichas de colores que simulan diferentes especies. Cada color representa una especie distinta, y la frecuencia de cada ficha es indicativa de la abundancia de esa especie en el sitio.
+
+
+## Gráficas de Abundancia 
+
+Las distribuciones de rango abundancia (DRA) son una herramienta poderosa para analizar los patrones de biodiversidad en las comunidades ecológicas. Las DRA representan la abundancia relativa de las especies, proporcionando información sobre la abundancia, la riqueza y la equidad (Foster & Dunstan, 2010). Estas distribuciones pueden modelarse estadísticamente para examinar cómo cambia la biodiversidad a través de gradientes ambientales (Foster & Dunstan, 2010; Dunstan et al., 2012). Las DRA se han utilizado para identificar puntos calientes de biodiversidad y áreas con un alto número de especies raras (Dunstan et al., 2012).
+
+
+
+
+
+
