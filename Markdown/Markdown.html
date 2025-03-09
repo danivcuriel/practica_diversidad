@@ -431,6 +431,157 @@ abundancias</code></pre>
 </div>
 <div id="índices-de-diversidad-alfa" class="section level2">
 <h2>Índices de diversidad alfa</h2>
+<pre class="r"><code># CREAR FUNCIONES
+#Indice de Shannon
+shannon &lt;- function(abundancias) {
+  proba &lt;- abundancias / sum(abundancias)
+  proba &lt;- proba[proba &gt; 0]  # Eliminar ceros antes de calcular el logaritmo
+  return(-sum(proba * log(proba)))
+}
+
+
+#Indice de Simpson
+simpson &lt;- function(abundancias) {
+  prob &lt;- abundancias / sum(abundancias)
+  #Condicion de que si solo hay una especie, Simpson debe ser 1
+  if (length(prob) == 1) {
+    return(1)
+  }
+  return(1 - sum(prob^2))  
+}
+
+#Indice de Pielou
+pielou &lt;- function(abundancias) {
+  proba &lt;- abundancias / sum(abundancias)
+  proba &lt;- proba[proba &gt; 0]  # Eliminar valores 0
+  return(-sum(proba * log(proba))) 
+}</code></pre>
+<p>índices de las bolsas</p>
+<pre class="r"><code>luna &lt;- abundancias[1, 2:12] 
+luna</code></pre>
+<pre><code>## # A tibble: 1 × 11
+##    rojo azul_3 azul_2 azul_1 naranja amarillo rosa_3 rosa_2 rosa_1 verde_2
+##   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+## 1    10     10      4      6      10       10      9     10     10       3
+## # ℹ 1 more variable: verde_1 &lt;dbl&gt;</code></pre>
+<pre class="r"><code>shannon_luna &lt;- shannon(luna)
+simpson_luna &lt;- simpson(luna)
+pielou_luna &lt;- pielou(luna)
+
+cat(&quot;Índice de Shannon:&quot;, shannon_luna, &quot;\n&quot;)</code></pre>
+<pre><code>## Índice de Shannon: 2.341924</code></pre>
+<pre class="r"><code>cat(&quot;Índice de Simpson:&quot;, simpson_luna, &quot;\n&quot;)</code></pre>
+<pre><code>## Índice de Simpson: 0.9005198</code></pre>
+<pre class="r"><code>cat(&quot;Índice de Pielou:&quot;, pielou_luna, &quot;\n&quot;)</code></pre>
+<pre><code>## Índice de Pielou: 2.341924</code></pre>
+<pre class="r"><code># BOLSA 2 --&gt; CORAZON 
+corazon &lt;- abundancias[2, 2:12] 
+corazon</code></pre>
+<pre><code>## # A tibble: 1 × 11
+##    rojo azul_3 azul_2 azul_1 naranja amarillo rosa_3 rosa_2 rosa_1 verde_2
+##   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+## 1     1      6      0      0       8        1      2      6      7       0
+## # ℹ 1 more variable: verde_1 &lt;dbl&gt;</code></pre>
+<pre class="r"><code>shannon_corazon &lt;- shannon(corazon)
+simpson_corazon &lt;- simpson(corazon)
+pielou_corazon &lt;- pielou(corazon)
+
+cat(&quot;Índice de Shannon:&quot;, shannon_corazon, &quot;\n&quot;)</code></pre>
+<pre><code>## Índice de Shannon: 1.719655</code></pre>
+<pre class="r"><code>cat(&quot;Índice de Simpson:&quot;, simpson_corazon, &quot;\n&quot;)</code></pre>
+<pre><code>## Índice de Simpson: 0.8012487</code></pre>
+<pre class="r"><code>cat(&quot;Índice de Pielou:&quot;, pielou_corazon, &quot;\n&quot;)</code></pre>
+<pre><code>## Índice de Pielou: 1.719655</code></pre>
+<pre class="r"><code># BOLSA 3 --&gt; NARANJAS
+naranjas &lt;- abundancias[3, 2:12]  
+naranjas</code></pre>
+<pre><code>## # A tibble: 1 × 11
+##    rojo azul_3 azul_2 azul_1 naranja amarillo rosa_3 rosa_2 rosa_1 verde_2
+##   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+## 1     0      0      0      0      88        0      0      0      0       0
+## # ℹ 1 more variable: verde_1 &lt;dbl&gt;</code></pre>
+<pre class="r"><code>shannon_naranjas &lt;- shannon(naranjas)
+simpson_naranjas &lt;- simpson(naranjas)
+pielou_naranjas &lt;- pielou(naranjas)
+
+cat(&quot;Índice de Shannon:&quot;, shannon_naranjas, &quot;\n&quot;)</code></pre>
+<pre><code>## Índice de Shannon: 0</code></pre>
+<pre class="r"><code>cat(&quot;Índice de Simpson:&quot;, simpson_naranjas, &quot;\n&quot;)</code></pre>
+<pre><code>## Índice de Simpson: 0</code></pre>
+<pre class="r"><code>cat(&quot;Índice de Pielou:&quot;, pielou_naranjas, &quot;\n&quot;)</code></pre>
+<pre><code>## Índice de Pielou: 0</code></pre>
+<pre class="r"><code># BOLSA 4 --&gt; VERDES
+verdes &lt;- abundancias[4, 2:12] 
+verdes</code></pre>
+<pre><code>## # A tibble: 1 × 11
+##    rojo azul_3 azul_2 azul_1 naranja amarillo rosa_3 rosa_2 rosa_1 verde_2
+##   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+## 1     0      0      0      0       0        0      0      0      0       0
+## # ℹ 1 more variable: verde_1 &lt;dbl&gt;</code></pre>
+<pre class="r"><code>shannon_verdes &lt;- shannon(verdes)
+simpson_verdes &lt;- simpson(verdes)
+pielou_verdes &lt;- pielou(verdes)
+
+cat(&quot;Índice de Shannon para:&quot;, shannon_verdes, &quot;\n&quot;)</code></pre>
+<pre><code>## Índice de Shannon para: 0</code></pre>
+<pre class="r"><code>cat(&quot;Índice de Simpson:&quot;, simpson_verdes, &quot;\n&quot;)</code></pre>
+<pre><code>## Índice de Simpson: 0</code></pre>
+<pre class="r"><code>cat(&quot;Índice de Pielou:&quot;, pielou_verdes, &quot;\n&quot;)</code></pre>
+<pre><code>## Índice de Pielou: 0</code></pre>
+<pre class="r"><code># BOLSA 5 --&gt; ALFA
+alfa &lt;- abundancias[5, 2:12]  
+alfa</code></pre>
+<pre><code>## # A tibble: 1 × 11
+##    rojo azul_3 azul_2 azul_1 naranja amarillo rosa_3 rosa_2 rosa_1 verde_2
+##   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+## 1     2      3     14     10       0        0      3      2      2       1
+## # ℹ 1 more variable: verde_1 &lt;dbl&gt;</code></pre>
+<pre class="r"><code>shannon_alfa &lt;- shannon(alfa)
+simpson_alfa &lt;- simpson(alfa)
+pielou_alfa &lt;- pielou(alfa)
+
+cat(&quot;Índice de Shannon:&quot;, shannon_alfa, &quot;\n&quot;)</code></pre>
+<pre><code>## Índice de Shannon: 1.776449</code></pre>
+<pre class="r"><code>cat(&quot;Índice de Simpson&quot;, simpson_alfa, &quot;\n&quot;)</code></pre>
+<pre><code>## Índice de Simpson 0.7728532</code></pre>
+<pre class="r"><code>cat(&quot;Índice de Pielou:&quot;, pielou_alfa, &quot;\n&quot;)</code></pre>
+<pre><code>## Índice de Pielou: 1.776449</code></pre>
+<pre class="r"><code># BOLSA 6 --&gt; VR
+vr &lt;- abundancias[6, 2:12]  
+vr</code></pre>
+<pre><code>## # A tibble: 1 × 11
+##    rojo azul_3 azul_2 azul_1 naranja amarillo rosa_3 rosa_2 rosa_1 verde_2
+##   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+## 1    12     12      4      7      11        0     12      2      0       3
+## # ℹ 1 more variable: verde_1 &lt;dbl&gt;</code></pre>
+<pre class="r"><code>shannon_vr &lt;- shannon(vr)
+simpson_vr &lt;- simpson(vr)
+pielou_vr &lt;- pielou(vr)
+
+cat(&quot;Índice de Shannon:&quot;, shannon_vr, &quot;\n&quot;)</code></pre>
+<pre><code>## Índice de Shannon: 1.976349</code></pre>
+<pre class="r"><code>cat(&quot;Índice de Simpson&quot;, simpson_vr, &quot;\n&quot;)</code></pre>
+<pre><code>## Índice de Simpson 0.8457031</code></pre>
+<pre class="r"><code>cat(&quot;Índice de Pielou:&quot;, pielou_vr, &quot;\n&quot;)</code></pre>
+<pre><code>## Índice de Pielou: 1.976349</code></pre>
+<pre class="r"><code># BOLSA 7 --&gt; HAPPY_FACE
+happy_face &lt;- abundancias[7, 2:12]  
+happy_face</code></pre>
+<pre><code>## # A tibble: 1 × 11
+##    rojo azul_3 azul_2 azul_1 naranja amarillo rosa_3 rosa_2 rosa_1 verde_2
+##   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+## 1     5      7      5      3       5        4      3      2      1       9
+## # ℹ 1 more variable: verde_1 &lt;dbl&gt;</code></pre>
+<pre class="r"><code>shannon_happy_face &lt;- shannon(happy_face)
+simpson_happy_face &lt;- simpson(happy_face)
+pielou_happy_face &lt;- pielou(happy_face)
+
+cat(&quot;Índice de Shannon:&quot;, shannon_happy_face, &quot;\n&quot;)</code></pre>
+<pre><code>## Índice de Shannon: 2.275237</code></pre>
+<pre class="r"><code>cat(&quot;Índice de Simpson&quot;, simpson_happy_face, &quot;\n&quot;)</code></pre>
+<pre><code>## Índice de Simpson 0.8871528</code></pre>
+<pre class="r"><code>cat(&quot;Índice de Pielou:&quot;, pielou_happy_face, &quot;\n&quot;)</code></pre>
+<pre><code>## Índice de Pielou: 2.275237</code></pre>
 </div>
 <div id="índices-de-diversidad-beta" class="section level2">
 <h2>Índices de diversidad beta</h2>
