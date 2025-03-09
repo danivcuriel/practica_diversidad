@@ -29,11 +29,6 @@ abundancias
 
 
 ## Índices de diversidad alfa
-Hemos puesto el script con todos nuestros análisis de los índices de diversidad alfa, y mostraremos nuestra data frame con los resultados para que puedan observarlos 
-```{r}
-# Cargar el script sin mostrar el código
-source("Scripts/indices_calculos.R")  # Aquí carga el archivo con todo tu código
-```
 
 
 ## Índices de diversidad beta
