@@ -237,6 +237,28 @@ zonas1<-data.frame(
 library(knitr)
 kable(zonas1,col.names=c("zona1","zona2","zona3","zona4","zona5","zona6","zona7"))
 ```
+El índice de Jaccard es una medida estadística empleada para calcular la similitud entre dos agrupaciones de datos, es el tamaño de la intersección entre la unión de dichos conjuntos y es utilizado en la ecología para comparar la similitud y diversidad de conjuntos de muestras. Se usa para comparar biodiversidad de hábitats centrándose en la presencia y ausencia de especies, pero cuenta con algunas limitaciones para tomar en cuenta al momento considerar su aplicación, por ejemplo, al ignorar la abundancia de especies presentes en un área esto tiende a que haya interpretaciones ambiguas en cuanto a al similitud de dichos lugares dado que en el sitio A puede ser que exista dominancia de una especie, mientras que en el sitio B este equilibrado, pero al no tomar en cuenta la abundancia, el resultado con el índice de Jaccard sería que el sitio A y B son similares entre sí, cuando no es así.
+
+El índice de Bray-Curtis es una medida de similitud o disimilitud entre dos grupos de datos, que frecuentemente es usado en ecología para comparar la composición de especies en distintos sitios, sus valores van desde 0 a 1, siendo 0 la diferencia total entre dos lugares y 1 la similitud total entre dos lugares, en contraste con el índice de Jaccard, Bray-Curtis si toma en cuenta las abundancias de las especies, por lo que puede ofrecer resultados más confiables y apegados a la realidad que el índice de Jaccard.
+
+En los resultados de la tabla, se puede ver que la diagonal son valores de 0, esto es porque se están comparando cada zona consigo misma, los valores de 1 corresponden a las comparaciones realizadas con las zonas que solo tenían 1 especie, es decir, tenían poca riqueza de especies, por lo que al compararla con las demás zonas, no va a coincidir con ninguna, esto es comprobable dado que las columnas de las zonas 3 y 4, que son las zonas con solo fichas naranjas y verdes respectivamente tienen valores altos, muy cercanos a 1, mientras que los demás tienen valores más cercanos a la media de los datos.
+
+Dados los resultados, se puede argumentar las siguientes conclusiones:
+
+-**La zona 1 es más similar a la zona 6 que las demás áreas**
+
+-**La zona 2 es similar a la zona 1**
+
+-**La zona 3 es muy diferente a todas las zonas al igual que la zona 4**
+
+-**La zona 5 es relativamente similar a la zona 6**
+
+-**La zona 6 es similar a la zona 1**
+
+-**La zona 7 tiene más caracteres en común con la zona 1 que con las demás**
+
+Los resultados de los índices de Jaccard y Bray-Curtis difieren en que para el índice de Jaccard los sitios más parecidos entre sí son: zona1-zona7, zona1-zona6, zona6-zona7, mientras que para el índice de Bray-Curtis los sitios más parecidos son: zona1-zona6 y ya, los demás sitios son similares, pero no al nivel de la zona1 con la zona6, estos resultados contrastan ya que el índice de Jaccard no toma en cuenta la abundancia de especies, mientras que el índice de Bray-Curtis si lo hace, por lo tanto, la cantidad de especies registradas en las diferentes zonas de la práctica influye directamente en los resultados para dictaminar la similitud entre estas áreas, mientras que para Jaccard solo basta con que estén presentes las especies sin tomar en cuenta la abundancia de estas, por lo que el índice de Bray-Curtis es más sensible que el de Jaccard en nuestra opinión. 
+
 
 ## Gráficas de Abundancia
 
