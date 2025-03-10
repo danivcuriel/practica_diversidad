@@ -48,3 +48,5 @@ dev.off()
 png("resultados/curva_Happy_Face_vg.png")
 rarecurve(happy_face_vg, main = "Curva de Rarefacción Happy Face", col = "yellow")
 dev.off()
+
+
