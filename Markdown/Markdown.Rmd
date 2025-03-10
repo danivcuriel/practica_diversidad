@@ -163,6 +163,14 @@ print(resultados)
 
 
 ## Índices de diversidad beta
+#### índice de Jaccard 
+```{r}
+jaccard<-function(a,b){
+  interseccion=length(which(a==1 & b==1))
+  union=length(which(a==1))+length(which(b==1))-interseccion
+  return(interseccion/union)
+}
+```
 
 ## Curvas de Rarefacción
 

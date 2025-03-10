@@ -476,6 +476,14 @@ print(resultados)</code></pre>
 </div>
 <div id="índices-de-diversidad-beta" class="section level2">
 <h2>Índices de diversidad beta</h2>
+<div id="índice-de-jaccard" class="section level4">
+<h4>índice de Jaccard</h4>
+<pre class="r"><code>jaccard&lt;-function(a,b){
+  interseccion=length(which(a==1 &amp; b==1))
+  union=length(which(a==1))+length(which(b==1))-interseccion
+  return(interseccion/union)
+}</code></pre>
+</div>
 </div>
 <div id="curvas-de-rarefacción" class="section level2">
 <h2>Curvas de Rarefacción</h2>
