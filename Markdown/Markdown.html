@@ -454,9 +454,94 @@ print(resultados_vg)</code></pre>
 ## 5       Alfa 1.776449 0.7408368 0.7728532        4.402439    NA
 ## 6         VR 1.976349 0.8242016 0.8457031        6.481013    NA
 ## 7 Happy_Face 2.275237 0.9488474 0.8871528        8.861538    NA</code></pre>
+<div id="shannon" class="section level3">
+<h3><strong>Shannon</strong></h3>
+<p>Este índice sirve para cuantificar la diversidad y riqueza de
+especies en un hábitat, evalúa la abundancia relativa y uniformidad de
+especies en los ecosistemas, de acuerdo a la <a href="https://www.tiloom.com/indice-de-shannon-biodiversidad-del-suelo/">página</a>,
+los valores de este índice varían desde 0.5 hasta 5, por lo que si el
+valor es menor a 2 significa una baja diversidad y si es mayor a 3 es
+una alta diversidad. Shannon-Weaver toma en cuenta la riqueza de
+especies que hay en una muestra y la abundancia de cada una de dichas
+especies. En la tabla de resultados en la columna “Shannon” se puede
+observar que en la mayoría de los casos con excepción de las filas
+“naranjas, verdes, happy_face y luna” se tiene una diversidad baja
+porque el índice es menor a 2 en esos casos, para las filas 1 y 7 la
+diversidad podría ser catalogada como con valor “medio” ya que está
+entre 2 y 3 que son los valores de referencia anteriormente descritos
+para el índice y por último las filas 3 y 4 tienen un valor de 0 porque
+estas dos bolsas solo contenían 1 tipo ficha, o 1 sola especie, por lo
+que su diversidad es nula.</p>
+</div>
+<div id="pielou" class="section level3">
+<h3><strong>Pielou</strong></h3>
+<p>Este índice mide la proporción de la diversidad observada en relación
+a la diversidad esperada, tiene valores de 0 a 1, donde 1 corresponde a
+un entorno donde todas las especies son igual de abundantes y 0
+significa que el ambiente no es uniforme, por lo que hay una especie
+dominante en ese ecosistema. En los resultados observados en la columna
+“Pielou” hay dos bolsas que tienen un valor de 0, estas corresponden a
+la bolsa “naranjas” y “verdes” respectivamente, en donde solo había
+presencia de un solo tipo de ficha, es decir, una sola especie, por lo
+que esa zona no era uniforme, lo cual concuerda con los valores de
+referencia descritos para este índice. En el otro extremo, se tienen a
+las bolsas 1 y 7 las cuales tienen los valores más cercanos a 1, lo que
+significa que en esos sitios las especies están distribuidas de forma
+uniforme relativamente, mientras que para las bolsas 2, 5 y 6 esta
+distribución es en menor proporción.</p>
+</div>
+<div id="simpson" class="section level3">
+<h3><strong>Simpson</strong></h3>
+<p>Determina la probabilidad de que al tomar al azar 2 individuos de una
+muestra, esos individuos pertenezcan a la misma especie, sin embargo,
+esta característica se ve afectada por la dominancia de las especies
+presentes en la muestra, de forma que si la especie A tiene una
+abundancia mayor a la especie B, las probabilidades de capturar a dos
+individuos de la especie A es mucho mayor a la probabilidad del mismo
+evento de la especie B. De acuerdo a la literatura, el índice de Simpson
+se expresa normalmente como 1-D, en donde se invierten los valores
+normales del índice teniendo ahora que 0 es igual a una baja diversidad
+y 1 es una alta diversidad. En nuestros resultados, la mayoría de los
+datos fueron cercanos a 1 indicando que tenían una diversidad
+relativamente alta y que esas zonas estaban distribuidas de forma
+equitativa, sin embargo hubo dos bolsas que tuvieron un valor de 0
+indicando una nula diversidad, estas dos bolsas corresponden a las que
+solo tenían un tipo de ficha. Para el índice inverso de simpson, se hace
+la siguiente expresión matemática (1/D), se tiene el mismo criterio, es
+decir, mientras mayor sea el valor obtenido como resultado, significa
+que hay mayor diversidad en la muestra, por lo que nuestros resultados
+indican lo mismo, las bolsas con valor de 1, son aquellas que tenían 1
+solo tipo de ficha, pero algunos resultados contrastaron con el índice
+normal, ya que la bolsa 1 ahora tiene un valor de 10, indicando que su
+diversidad es sumamente alta, mientras que las demás bolsas que en el
+índice de Simpson normal, tenían un valor cercano a la bolsa 1, ahora
+están más lejos de la bolsa 1 y más cerca las bolsas con baja
+diversidad.</p>
+</div>
+<div id="chao1" class="section level3">
+<h3><strong>Chao1</strong></h3>
+<p>Se trata de un estimador del número de especies en una comunidad,
+todo esto basado en el número de especies raras en la muestra donde solo
+hay 1 individuo (singletons) o por 2 individuos (doubletons). En nuestro
+análisis, el índice de Chao1 nos dio únicamente valores NA, a pesar de
+haber intentado modificar la base de datos en varias ocasiones. Esto nos
+llevó a reflexionar sobre las posibles causas del problema y las
+limitaciones del índice.</p>
+<p>Una de las posibles razones de este error podría estar relacionada
+con la presencia de especies con abundancia cero en algunos sitios,
+problemas en la estructura de los datos o valores faltantes en la base
+de datos. Sin embargo, lo que nos resultó más confuso es que incluso en
+sitios donde no había ceros, el índice seguía arrojando NA, lo que hizo
+que fuera difícil identificar la causa exacta del problema. Intentamos
+resolverlo consultando distintas fuentes y ajustando los datos, pero no
+logramos obtener un resultado válido. En un intento por entender mejor
+la situación, recurrimos a una IA para buscar explicaciones y posibles
+soluciones, pero la complejidad de la fórmula y la falta de claridad en
+cómo aplicarla correctamente nos impidieron resolver el error.</p>
+</div>
 </div>
 <div id="curvas-de-rarefacción" class="section level2">
-<h2>Curvas de Rarefacción</h2>
+<h2><strong>Curvas de Rarefacción</strong></h2>
 <p>Las dos curvas de rarefacción presentadas muestran patrones similares
 en la acumulación del número de especies con respecto al esfuerzo de
 muestreo, aunque hay algunas diferencias notables en la representación
@@ -528,7 +613,6 @@ jac$sitio5-&gt;e
 jac$sitio6-&gt;f
 jac$sitio7-&gt;g</code></pre>
 <p>Estos fueron los resultados de todas las zonas</p>
-<pre><code>## Warning: package &#39;knitr&#39; was built under R version 4.4.2</code></pre>
 <table style="width:100%;">
 <colgroup>
 <col width="14%" />
@@ -1101,7 +1185,7 @@ and statistical analyses. ASTM International.</li>
 <h2><strong>Contribuciones del Equipo</strong></h2>
 <p>A nosotros no nos gusta dividirnos los trabajos, entonces este
 reporte se realizó en colaboración en github, todos movimos de todo pero
-los puntos que pusimos par alas contribuciones personales fue en lo que
+los puntos que pusimos para las contribuciones personales fue en lo que
 más se enfocó cada quien.</p>
 <p><strong><em>1. Estrella Segobia:</em></strong> Cargó y preparó los
 datos para el análisis, calculó el análisis para la diversidad alfa.
