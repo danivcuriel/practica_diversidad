@@ -31,11 +31,10 @@ pielou <- function(abundancias) {
 library(tidyverse)
 abundancias <- read_csv("01_datos_crudos/abundancias.csv")
 abundancias
+abundancias1<-read.csv("01_datos_crudos/datosbray.csv")
+abundancias1
 
 ##Ejercicio Luna
-
-
-
 
 
 # BOLSA 1 --> LUNA

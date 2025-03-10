@@ -428,79 +428,38 @@ abundancias</code></pre>
 ## 6 vr       12     12      4      7      11        0     12      2      0       3
 ## 7 happ…     5      7      5      3       5        4      3      2      1       9
 ## # ℹ 2 more variables: verde_1 &lt;dbl&gt;, morado &lt;dbl&gt;</code></pre>
-<pre class="r"><code>class(abundancias)</code></pre>
-<pre><code>## [1] &quot;spec_tbl_df&quot; &quot;tbl_df&quot;      &quot;tbl&quot;         &quot;data.frame&quot;</code></pre>
+<pre class="r"><code>abundancias1 &lt;- read_csv(&quot;datos_crudos/datosbray.csv&quot;)
+abundancias1</code></pre>
+<pre><code>## # A tibble: 12 × 8
+##    especies    sitio1 sitio2 sitio3 sitio4 sitio5 sitio6 sitio7
+##    &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+##  1 rosa1           10      7      0      0      2      0      1
+##  2 rosa2           10      6      0      0      2      2      2
+##  3 rosa3            9      2      0      0      3     12      3
+##  4 naranja         10      8     88      0      0     11      5
+##  5 morado          10      9      0      0      0     13      2
+##  6 amarillo        10      1      0      0      0      0      4
+##  7 rojo            10      1      0      0      2     12      5
+##  8 verde_claro      7      0      0     66      1      1      4
+##  9 verde_osc        3      0      0      0      1      3      9
+## 10 azul1            6      0      0      0     10      7      3
+## 11 azul2            4      0      0      0     14      4      5
+## 12 azul3           10      6      0      0      3     12      7</code></pre>
 </div>
 <div id="índices-de-diversidad-alfa" class="section level2">
 <h2>Índices de diversidad alfa</h2>
 <p>Para los índices alfa se utilizó la paquetería vegan para poder
 confirmar si nuestras funciones estaban bien…</p>
 <pre class="r"><code>library(vegan)</code></pre>
-<pre class="r"><code># Calcular índices con la librería vegan
-luna_vg &lt;- abundancias[1, 2:12] 
-shannon_luna &lt;- diversity(luna_vg, index = &quot;shannon&quot;)
-pielou_luna &lt;- shannon_luna / log(length(luna_vg))  # Pielou es la diversidad de Shannon normalizada
-simpson_luna &lt;- diversity(luna_vg, index = &quot;simpson&quot;)
-simpson_inv_luna &lt;- diversity(luna_vg, index = &quot;invsimpson&quot;)  # Simpson inverso
-chao1_luna &lt;- estimateR(luna_vg)[&quot;Chao1&quot;]
-result &lt;- estimateR(luna_vg)
-print(result)</code></pre>
-<pre><code>##                  [,1]
-## S.obs    1.100000e+01
-## S.chao1  1.100000e+01
-## se.chao1 0.000000e+00
-## S.ACE    1.100000e+01
-## se.ACE   1.825012e-08</code></pre>
-<pre class="r"><code>chao1_luna1&lt;-estimateR(luna_vg)[1, , drop=FALSE]
-
-
-# BOLSA 2 --&gt; CORAZON
-corazon_vg &lt;- abundancias[2, 2:12] 
-shannon_corazon &lt;- diversity(corazon_vg, index = &quot;shannon&quot;)
-pielou_corazon &lt;- shannon_corazon / log(length(corazon_vg))
-simpson_corazon &lt;- diversity(corazon_vg, index = &quot;simpson&quot;)
-simpson_inv_corazon &lt;- diversity(corazon_vg, index = &quot;invsimpson&quot;)
-chao1_corazon &lt;- estimateR(corazon_vg)[&quot;Chao1&quot;]
-
-# BOLSA 3 --&gt; NARANJAS
-naranjas_vg &lt;- abundancias[3, 2:12]
-shannon_naranjas &lt;- diversity(naranjas_vg, index = &quot;shannon&quot;)
-pielou_naranjas &lt;- shannon_naranjas / log(length(naranjas_vg))
-simpson_naranjas &lt;- diversity(naranjas_vg, index = &quot;simpson&quot;)
-simpson_inv_naranjas &lt;- diversity(naranjas_vg, index = &quot;invsimpson&quot;)
-chao1_naranjas &lt;- estimateR(naranjas_vg)[&quot;Chao1&quot;]
-
-# BOLSA 4 --&gt; VERDES
-verdes_vg &lt;- abundancias[4, 2:12]
-shannon_verdes &lt;- diversity(verdes_vg, index = &quot;shannon&quot;)
-pielou_verdes &lt;- shannon_verdes / log(length(verdes_vg))
-simpson_verdes &lt;- diversity(verdes_vg, index = &quot;simpson&quot;)
-simpson_inv_verdes &lt;- diversity(verdes_vg, index = &quot;invsimpson&quot;)
-chao1_verdes &lt;- estimateR(verdes_vg)[&quot;Chao1&quot;]
-
-# BOLSA 5 --&gt; ALFA
-alfa_vg &lt;- abundancias[5, 2:12]
-shannon_alfa &lt;- diversity(alfa_vg, index = &quot;shannon&quot;)
-pielou_alfa &lt;- shannon_alfa / log(length(alfa_vg))
-simpson_alfa &lt;- diversity(alfa_vg, index = &quot;simpson&quot;)
-simpson_inv_alfa &lt;- diversity(alfa_vg, index = &quot;invsimpson&quot;)
-chao1_alfa &lt;- estimateR(alfa_vg)[&quot;Chao1&quot;]
-
-# BOLSA 6 --&gt; VR
-vr_vg &lt;- abundancias[6, 2:12]
-shannon_vr &lt;- diversity(vr_vg, index = &quot;shannon&quot;)
-pielou_vr &lt;- shannon_vr / log(length(vr_vg))
-simpson_vr &lt;- diversity(vr_vg, index = &quot;simpson&quot;)
-simpson_inv_vr &lt;- diversity(vr_vg, index = &quot;invsimpson&quot;)
-chao1_vr &lt;- estimateR(vr_vg)[&quot;Chao1&quot;]
-
-# BOLSA 7 --&gt; HAPPY_FACE
-happy_face_vg &lt;- abundancias[7, 2:12]
-shannon_happy_face &lt;- diversity(happy_face_vg, index = &quot;shannon&quot;)
-pielou_happy_face &lt;- shannon_happy_face / log(length(happy_face_vg))
-simpson_happy_face &lt;- diversity(happy_face_vg, index = &quot;simpson&quot;)
-simpson_inv_happy_face &lt;- diversity(happy_face_vg, index = &quot;invsimpson&quot;)
-chao1_happy_face &lt;- estimateR(happy_face_vg)[&quot;Chao1&quot;]</code></pre>
+<pre class="r"><code>#para índices alfa
+mishanon&lt;-function(abundances){
+  prob&lt;-abundances/sum(abundances)
+  return(-sum(prob*log(prob)))
+}
+simpson&lt;-function(abundances){
+  prob&lt;-abundances/sum(abundances)
+  sum(prob*prob)
+}</code></pre>
 <pre class="r"><code># Crear un data frame con los resultados
 resultados_vg &lt;- data.frame(
   Bolsa = c(&quot;Luna&quot;, &quot;Corazon&quot;, &quot;Naranjas&quot;, &quot;Verdes&quot;, &quot;Alfa&quot;, &quot;VR&quot;, &quot;Happy_Face&quot;),
@@ -875,8 +834,9 @@ distribución de especies, muestra valores altos en las bolsas diversas
 (cerca de 2.3), mientras que las bolsas con baja diversidad, como
 Naranjas y Verdes, tienen un índice de 0, reflejando una distribución
 desigual en estas áreas.</p>
-<p><strong>2. ¿Cuál índice es más sensible a especies raras?</strong>
-<strong>3. ¿Por qué el índice de Pielou nos da información sobre la
+<p><strong>2. ¿Cuál índice es más sensible a especies
+raras?</strong></p>
+<p><strong>3. ¿Por qué el índice de Pielou nos da información sobre la
 equitatividad de la comunidad?</strong> El índice de Pielou compara la
 diversidad que realmente hay en la comunidad con la diversidad
 “perfecta” que habría si todas las especies tuvieran la misma cantidad
