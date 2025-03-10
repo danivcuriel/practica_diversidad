@@ -175,14 +175,14 @@ jaccard<-function(a,b){
 Se aplicó el índice a cada combinación de zonas o bolsas utilizadas para la práctica, es decir, **bolsa 1/zona 1** ***Vs*** **todas las demás** y así respectivamente con las demás zonas.
 El pimer paso fue delimitar las zonas para simplificar la sintaxis de la función, para eso se crearon zonas o sitios de la ***a*** a la ***g***:
 ```{r}
-pre<- read.csv("Markdown/datos_crudos/datosjaccard.csv")
-pre$sitio1->a
-pre$sitio2->b
-pre$sitio3->c
-pre$sitio4->d
-pre$sitio5->e
-pre$sitio6->f
-pre$sitio7->g
+read.csv("datos_crudos/datosjaccard.csv")->jac
+jac$sitio1->a
+jac$sitio2->b
+jac$sitio3->c
+jac$sitio4->d
+jac$sitio5->e
+jac$sitio6->f
+jac$sitio7->g
 ```
 Estos fueron los resultados de la zona 1
 ```{r}

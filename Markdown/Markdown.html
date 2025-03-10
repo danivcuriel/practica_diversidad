@@ -478,11 +478,45 @@ print(resultados)</code></pre>
 <h2>Índices de diversidad beta</h2>
 <div id="índice-de-jaccard" class="section level4">
 <h4>Índice de Jaccard</h4>
+<p>La función se realizó con ayuda de el siguiente recurso de internet
+(<a href="https://www.r-bloggers.com/2021/11/how-to-calculate-jaccard-similarity-in-r/">este
+de aquí!!</a>) y quedó de la siguiente manera, está organizado de manera
+que tome en cuenta los caracteres igual a 1 de cada uno de los vectores
+o en este caso columnas sin tomar en cuenta los 0, que alteraban el
+resultado.</p>
 <pre class="r"><code>jaccard&lt;-function(a,b){
   interseccion=length(which(a==1 &amp; b==1))
   union=length(which(a==1))+length(which(b==1))-interseccion
   return(interseccion/union)
 }</code></pre>
+<p>Se aplicó el índice a cada combinación de zonas o bolsas utilizadas
+para la práctica, es decir, <strong>bolsa 1/zona 1</strong>
+<strong><em>Vs</em></strong> <strong>todas las demás</strong> y así
+respectivamente con las demás zonas. El pimer paso fue delimitar las
+zonas para simplificar la sintaxis de la función, para eso se crearon
+zonas o sitios de la <strong><em>a</em></strong> a la
+<strong><em>g</em></strong>:</p>
+<pre class="r"><code>read.csv(&quot;datos_crudos/datosjaccard.csv&quot;)-&gt;jac
+jac$sitio1-&gt;a
+jac$sitio2-&gt;b
+jac$sitio3-&gt;c
+jac$sitio4-&gt;d
+jac$sitio5-&gt;e
+jac$sitio6-&gt;f
+jac$sitio7-&gt;g</code></pre>
+<p>Estos fueron los resultados de la zona 1</p>
+<pre class="r"><code>jaccard(a,b)</code></pre>
+<pre><code>## [1] 0.6666667</code></pre>
+<pre class="r"><code>jaccard(a,c)</code></pre>
+<pre><code>## [1] 0.08333333</code></pre>
+<pre class="r"><code>jaccard(a,d)</code></pre>
+<pre><code>## [1] 0.08333333</code></pre>
+<pre class="r"><code>jaccard(a,e)</code></pre>
+<pre><code>## [1] 0.75</code></pre>
+<pre class="r"><code>jaccard(a,f)</code></pre>
+<pre><code>## [1] 0.8333333</code></pre>
+<pre class="r"><code>jaccard(a,g)</code></pre>
+<pre><code>## [1] 1</code></pre>
 </div>
 <div id="índice-de-bray-curtis" class="section level4">
 <h4>Índice de Bray-Curtis</h4>
