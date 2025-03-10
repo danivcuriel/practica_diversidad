@@ -485,19 +485,94 @@ jac$sitio4-&gt;d
 jac$sitio5-&gt;e
 jac$sitio6-&gt;f
 jac$sitio7-&gt;g</code></pre>
-<p>Estos fueron los resultados de la zona 1</p>
-<pre class="r"><code>jaccard(a,b)</code></pre>
-<pre><code>## [1] 0.6666667</code></pre>
-<pre class="r"><code>jaccard(a,c)</code></pre>
-<pre><code>## [1] 0.08333333</code></pre>
-<pre class="r"><code>jaccard(a,d)</code></pre>
-<pre><code>## [1] 0.08333333</code></pre>
-<pre class="r"><code>jaccard(a,e)</code></pre>
-<pre><code>## [1] 0.75</code></pre>
-<pre class="r"><code>jaccard(a,f)</code></pre>
-<pre><code>## [1] 0.8333333</code></pre>
-<pre class="r"><code>jaccard(a,g)</code></pre>
-<pre><code>## [1] 1</code></pre>
+<p>Estos fueron los resultados de todas las zonas</p>
+<table style="width:100%;">
+<colgroup>
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">zona1</th>
+<th align="right">zona2</th>
+<th align="right">zona3</th>
+<th align="right">zona4</th>
+<th align="right">zona5</th>
+<th align="right">zona6</th>
+<th align="right">zona7</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1.0000000</td>
+<td align="right">0.6666667</td>
+<td align="right">0.0833333</td>
+<td align="right">0.0833333</td>
+<td align="right">0.7500000</td>
+<td align="right">0.8333333</td>
+<td align="right">1.0000000</td>
+</tr>
+<tr class="even">
+<td align="right">0.6666667</td>
+<td align="right">1.0000000</td>
+<td align="right">0.1250000</td>
+<td align="right">0.0000000</td>
+<td align="right">0.4166667</td>
+<td align="right">0.5000000</td>
+<td align="right">0.6666667</td>
+</tr>
+<tr class="odd">
+<td align="right">0.0833333</td>
+<td align="right">0.1250000</td>
+<td align="right">1.0000000</td>
+<td align="right">0.0000000</td>
+<td align="right">0.0000000</td>
+<td align="right">0.1000000</td>
+<td align="right">0.0833333</td>
+</tr>
+<tr class="even">
+<td align="right">0.0833333</td>
+<td align="right">0.0000000</td>
+<td align="right">0.0000000</td>
+<td align="right">1.0000000</td>
+<td align="right">0.1111111</td>
+<td align="right">0.1000000</td>
+<td align="right">0.0833333</td>
+</tr>
+<tr class="odd">
+<td align="right">0.7500000</td>
+<td align="right">0.4166667</td>
+<td align="right">0.0000000</td>
+<td align="right">0.1111111</td>
+<td align="right">1.0000000</td>
+<td align="right">0.7272727</td>
+<td align="right">0.7500000</td>
+</tr>
+<tr class="even">
+<td align="right">0.8333333</td>
+<td align="right">0.5000000</td>
+<td align="right">0.1000000</td>
+<td align="right">0.1000000</td>
+<td align="right">0.1000000</td>
+<td align="right">1.0000000</td>
+<td align="right">0.8333333</td>
+</tr>
+<tr class="odd">
+<td align="right">1.0000000</td>
+<td align="right">0.6666667</td>
+<td align="right">0.0833333</td>
+<td align="right">0.0833333</td>
+<td align="right">0.0833333</td>
+<td align="right">0.8333333</td>
+<td align="right">1.0000000</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="índice-de-bray-curtis" class="section level4">
 <h4>Índice de Bray-Curtis</h4>
@@ -507,6 +582,95 @@ jac$sitio7-&gt;g</code></pre>
   aba&lt;-sum(a)+sum(b)
   return(1-arri/aba)
 }</code></pre>
+<p>Estos son los resultados para el índice de Bray-Curtis para cada una
+de las zonas</p>
+<table style="width:100%;">
+<colgroup>
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">zona1</th>
+<th align="right">zona2</th>
+<th align="right">zona3</th>
+<th align="right">zona4</th>
+<th align="right">zona5</th>
+<th align="right">zona6</th>
+<th align="right">zona7</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0.0000000</td>
+<td align="right">0.4244604</td>
+<td align="right">0.8930481</td>
+<td align="right">0.9151515</td>
+<td align="right">0.6496350</td>
+<td align="right">0.2613636</td>
+<td align="right">0.4228188</td>
+</tr>
+<tr class="even">
+<td align="right">0.4244604</td>
+<td align="right">0.0000000</td>
+<td align="right">0.8750000</td>
+<td align="right">1.0000000</td>
+<td align="right">0.7435897</td>
+<td align="right">0.5213675</td>
+<td align="right">0.5555556</td>
+</tr>
+<tr class="odd">
+<td align="right">0.8930481</td>
+<td align="right">0.8750000</td>
+<td align="right">0.0000000</td>
+<td align="right">1.0000000</td>
+<td align="right">1.0000000</td>
+<td align="right">0.8666667</td>
+<td align="right">0.9275362</td>
+</tr>
+<tr class="even">
+<td align="right">0.9151515</td>
+<td align="right">1.0000000</td>
+<td align="right">1.0000000</td>
+<td align="right">0.0000000</td>
+<td align="right">0.9807692</td>
+<td align="right">0.9860140</td>
+<td align="right">0.9310345</td>
+</tr>
+<tr class="odd">
+<td align="right">0.6496350</td>
+<td align="right">0.7435897</td>
+<td align="right">1.0000000</td>
+<td align="right">0.9807692</td>
+<td align="right">0.0000000</td>
+<td align="right">0.6000000</td>
+<td align="right">0.5227273</td>
+</tr>
+<tr class="even">
+<td align="right">0.2613636</td>
+<td align="right">0.5213675</td>
+<td align="right">0.8666667</td>
+<td align="right">0.9860140</td>
+<td align="right">0.6000000</td>
+<td align="right">0.0000000</td>
+<td align="right">0.4488189</td>
+</tr>
+<tr class="odd">
+<td align="right">0.4228188</td>
+<td align="right">0.5555556</td>
+<td align="right">0.9275362</td>
+<td align="right">0.9310345</td>
+<td align="right">0.5227273</td>
+<td align="right">0.4488189</td>
+<td align="right">0.0000000</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div id="curvas-de-rarefacción" class="section level2">

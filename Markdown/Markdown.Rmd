@@ -131,14 +131,19 @@ jac$sitio5->e
 jac$sitio6->f
 jac$sitio7->g
 ```
-Estos fueron los resultados de la zona 1
-```{r}
-jaccard(a,b)
-jaccard(a,c)
-jaccard(a,d)
-jaccard(a,e)
-jaccard(a,f)
-jaccard(a,g)
+Estos fueron los resultados de todas las zonas
+```{r,echo=FALSE}
+zonas<-data.frame(
+  zona1=c(jaccard(a,a),jaccard(a,b),jaccard(a,c),jaccard(a,d),jaccard(a,e),jaccard(a,f),jaccard(a,g)),
+  zona2=c(jaccard(b,a),jaccard(b,b),jaccard(b,c),jaccard(b,d),jaccard(b,e),jaccard(b,f),jaccard(b,g)),
+  zona3=c(jaccard(c,a),jaccard(c,b),jaccard(c,c),jaccard(c,d),jaccard(c,e),jaccard(c,f),jaccard(c,g)),
+  zona4=c(jaccard(d,a),jaccard(d,b),jaccard(d,c),jaccard(d,d),jaccard(d,e),jaccard(d,f),jaccard(d,g)),
+  zona5=c(jaccard(e,a),jaccard(e,b),jaccard(e,c),jaccard(e,d),jaccard(e,e),jaccard(d,f),jaccard(d,g)),
+  zona6=c(jaccard(f,a),jaccard(f,b),jaccard(f,c),jaccard(f,d),jaccard(f,e),jaccard(f,f),jaccard(f,g)),
+  zona7=c(jaccard(g,a),jaccard(g,b),jaccard(g,c),jaccard(g,d),jaccard(g,e),jaccard(g,f),jaccard(g,g))
+)
+library(knitr)
+kable(zonas,col.names=c("zona1","zona2","zona3","zona4","zona5","zona6","zona7"))
 ```
 
 #### Índice de Bray-Curtis
@@ -149,6 +154,32 @@ braycurtis<-function(a,b){
   aba<-sum(a)+sum(b)
   return(1-arri/aba)
 }
+```
+Estos son los resultados para el índice de Bray-Curtis para cada una de las zonas
+```{r,echo=FALSE}
+read.csv("datos_crudos/datosbray.csv")->bray
+bray$sitio1->a1
+bray$sitio2->b1
+bray$sitio3->c1
+bray$sitio4->d1
+bray$sitio5->e1
+bray$sitio6->f1
+bray$sitio7->g1
+```
+
+```{r,echo=FALSE}
+
+zonas1<-data.frame(
+  zona1=c(braycurtis(a1,a1),braycurtis(a1,b1),braycurtis(a1,c1),braycurtis(a1,d1),braycurtis(a1,e1),braycurtis(a1,f1),braycurtis(a1,g1)),
+  zona2=c(braycurtis(b1,a1),braycurtis(b1,b1),braycurtis(b1,c1),braycurtis(b1,d1),braycurtis(b1,e1),braycurtis(b1,f1),braycurtis(b1,g1)),
+  zona3=c(braycurtis(c1,a1),braycurtis(c1,b1),braycurtis(c1,c1),braycurtis(c1,d1),braycurtis(c1,e1),braycurtis(c1,f1),braycurtis(c1,g1)),
+  zona4=c(braycurtis(d1,a1),braycurtis(d1,b1),braycurtis(d1,c1),braycurtis(d1,d1),braycurtis(d1,e1),braycurtis(d1,f1),braycurtis(d1,g1)),
+  zona5=c(braycurtis(e1,a1),braycurtis(e1,b1),braycurtis(e1,c1),braycurtis(e1,d1),braycurtis(e1,e1),braycurtis(e1,f1),braycurtis(e1,g1)),
+  zona6=c(braycurtis(f1,a1),braycurtis(f1,b1),braycurtis(f1,c1),braycurtis(f1,d1),braycurtis(f1,e1),braycurtis(f1,f1),braycurtis(f1,g1)),
+  zona7=c(braycurtis(g1,a1),braycurtis(g1,b1),braycurtis(g1,c1),braycurtis(g1,d1),braycurtis(g1,e1),braycurtis(g1,f1),braycurtis(g1,g1))
+)
+library(knitr)
+kable(zonas1,col.names=c("zona1","zona2","zona3","zona4","zona5","zona6","zona7"))
 ```
 
 ## Curvas de Rarefacción
