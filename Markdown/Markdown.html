@@ -528,7 +528,6 @@ jac$sitio5-&gt;e
 jac$sitio6-&gt;f
 jac$sitio7-&gt;g</code></pre>
 <p>Estos fueron los resultados de todas las zonas</p>
-<pre><code>## Warning: package &#39;knitr&#39; was built under R version 4.4.2</code></pre>
 <table style="width:100%;">
 <colgroup>
 <col width="14%" />
@@ -913,6 +912,26 @@ entender la distribución de la abundancia.</p>
 interpretar mejor las diferencias entre los índices, ayudándonos a
 comprender cómo cada uno refleja distintos aspectos de la
 biodiversidad.</p>
+<p>Además, realizamos un análisis de rarefacción para evaluar el
+esfuerzo de muestreo necesario para representar la diversidad de
+especies en los diferentes sitios. Generamos dos versiones de las curvas
+de rarefacción usando distintos métodos: una con el paquete
+<em>vegan</em> en R y otra con nuestros propios cálculos en
+<em>ggplot</em>. Aunque en teoría ambas deberían mostrar los mismos
+patrones, encontramos diferencias en la forma en que los datos se
+procesan y visualizan. La versión con <em>vegan</em> generó curvas más
+suaves y continuas debido que al ser una libreria predeterminada,
+utiliza la interpolación de los datos, lo que permite visualizar de
+manera clara los puntos en los que la riqueza de especies comienza a
+estabilizarse. En cambio, la versión realizada con <em>ggplot</em>
+presentó curvas más bruscas, ya que los datos fueron calculados de
+manera puntual, sin interpolaciones. Esto puede hacer que algunas
+tendencias no sean tan evidentes a simple vista, aunque mantiene una
+representación fiel de los datos sin ajustes adicionales. A pesar de
+estas diferencias, ambas gráficas muestran tendencias similares,
+destacando que sitios como “<em>Luna</em>”, “<em>VR</em>” y “<em>Happy
+Face</em>” tienen mayor riqueza de especies, mientras que
+“<em>Verdes</em>” y “<em>Naranjas</em>” presentan menor diversidad.</p>
 <p>Por otro lado, al analizar las gráficas de abundancia, pudimos
 visualizar de manera clara las diferencias en diversidad entre los
 sitios. La representación gráfica nos permitió identificar rangos de
@@ -973,10 +992,10 @@ completamente plana cuando ya no haya más especies nuevas por
 encontrar.</p>
 <p><strong>6. ¿Cuál de estos índices es más sensible a la diferencia en
 abundancias?</strong></p>
-<p>El <strong>índice de Simpson</strong> es el más sensible a la
-diferencia en abundancias porque da más importancia a las especies
-dominantes. Si en un sitio hay una especie que tiene muchos más
-individuos que las demás, este indice tendra un valor más bajo.</p>
+<p>El <em>índice de Simpson</em> es el más sensible a la diferencia en
+abundancias porque da más importancia a las especies dominantes. Si en
+un sitio hay una especie que tiene muchos más individuos que las demás,
+este indice tendra un valor más bajo.</p>
 <p><strong>7. ¿Qué interpretación ecológica tienen las diferencias entre
 sitios?</strong></p>
 <p>Las diferencias en los índices pueden indicar distintos factores

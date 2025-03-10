@@ -237,7 +237,9 @@ zonas1<-data.frame(
 library(knitr)
 kable(zonas1,col.names=c("zona1","zona2","zona3","zona4","zona5","zona6","zona7"))
 ```
-El índice de Jaccard es una medida estadística empleada para calcular la similitud entre dos agrupaciones de datos, es el tamaño de la intersección entre la unión de dichos conjuntos y es utilizado en la ecología para comparar la similitud y diversidad de conjuntos de muestras. Se usa para comparar biodiversidad de hábitats centrándose en la presencia y ausencia de especies, pero cuenta con algunas limitaciones para tomar en cuenta al momento considerar su aplicación, por ejemplo, al ignorar la abundancia de especies presentes en un área esto tiende a que haya interpretaciones ambiguas en cuanto a al similitud de dichos lugares dado que en el sitio A puede ser que exista dominancia de una especie, mientras que en el sitio B este equilibrado, pero al no tomar en cuenta la abundancia, el resultado con el índice de Jaccard sería que el sitio A y B son similares entre sí, cuando no es así.
+
+El índice de Jaccard es una medida estadística empleada para calcular la similitud entre dos agrupaciones de datos, es el tamaño de la intersección entre la unión de dichos conjuntos y es utilizado en la ecología para comparar la similitud y diversidad de conjuntos de muestras.
+Se usa para comparar biodiversidad de hábitats centrándose en la presencia y ausencia de especies, pero cuenta con algunas limitaciones para tomar en cuenta al momento considerar su aplicación, por ejemplo, al ignorar la abundancia de especies presentes en un área esto tiende a que haya interpretaciones ambiguas en cuanto a al similitud de dichos lugares dado que en el sitio A puede ser que exista dominancia de una especie, mientras que en el sitio B este equilibrado, pero al no tomar en cuenta la abundancia, el resultado con el índice de Jaccard sería que el sitio A y B son similares entre sí, cuando no es así.
 
 El índice de Bray-Curtis es una medida de similitud o disimilitud entre dos grupos de datos, que frecuentemente es usado en ecología para comparar la composición de especies en distintos sitios, sus valores van desde 0 a 1, siendo 0 la diferencia total entre dos lugares y 1 la similitud total entre dos lugares, en contraste con el índice de Jaccard, Bray-Curtis si toma en cuenta las abundancias de las especies, por lo que puede ofrecer resultados más confiables y apegados a la realidad que el índice de Jaccard.
 
@@ -245,20 +247,19 @@ En los resultados de la tabla, se puede ver que la diagonal son valores de 0, es
 
 Dados los resultados, se puede argumentar las siguientes conclusiones:
 
--**La zona 1 es más similar a la zona 6 que las demás áreas**
+\-**La zona 1 es más similar a la zona 6 que las demás áreas**
 
--**La zona 2 es similar a la zona 1**
+\-**La zona 2 es similar a la zona 1**
 
--**La zona 3 es muy diferente a todas las zonas al igual que la zona 4**
+\-**La zona 3 es muy diferente a todas las zonas al igual que la zona 4**
 
--**La zona 5 es relativamente similar a la zona 6**
+\-**La zona 5 es relativamente similar a la zona 6**
 
--**La zona 6 es similar a la zona 1**
+\-**La zona 6 es similar a la zona 1**
 
--**La zona 7 tiene más caracteres en común con la zona 1 que con las demás**
+\-**La zona 7 tiene más caracteres en común con la zona 1 que con las demás**
 
-Los resultados de los índices de Jaccard y Bray-Curtis difieren en que para el índice de Jaccard los sitios más parecidos entre sí son: zona1-zona7, zona1-zona6, zona6-zona7, mientras que para el índice de Bray-Curtis los sitios más parecidos son: zona1-zona6 y ya, los demás sitios son similares, pero no al nivel de la zona1 con la zona6, estos resultados contrastan ya que el índice de Jaccard no toma en cuenta la abundancia de especies, mientras que el índice de Bray-Curtis si lo hace, por lo tanto, la cantidad de especies registradas en las diferentes zonas de la práctica influye directamente en los resultados para dictaminar la similitud entre estas áreas, mientras que para Jaccard solo basta con que estén presentes las especies sin tomar en cuenta la abundancia de estas, por lo que el índice de Bray-Curtis es más sensible que el de Jaccard en nuestra opinión. 
-
+Los resultados de los índices de Jaccard y Bray-Curtis difieren en que para el índice de Jaccard los sitios más parecidos entre sí son: zona1-zona7, zona1-zona6, zona6-zona7, mientras que para el índice de Bray-Curtis los sitios más parecidos son: zona1-zona6 y ya, los demás sitios son similares, pero no al nivel de la zona1 con la zona6, estos resultados contrastan ya que el índice de Jaccard no toma en cuenta la abundancia de especies, mientras que el índice de Bray-Curtis si lo hace, por lo tanto, la cantidad de especies registradas en las diferentes zonas de la práctica influye directamente en los resultados para dictaminar la similitud entre estas áreas, mientras que para Jaccard solo basta con que estén presentes las especies sin tomar en cuenta la abundancia de estas, por lo que el índice de Bray-Curtis es más sensible que el de Jaccard en nuestra opinión.
 
 ## Gráficas de Abundancia
 
@@ -296,23 +297,39 @@ Las DRA se han utilizado para identificar puntos calientes de biodiversidad y á
 ![En esta gráfica, la abundancia se mantiene más constante en comparación con otros sitios, reflejando una mayor equitatividad entre las especies. Aunque la línea desciende al cambiar de especies, lo hace de manera gradual, sin caídas drásticas, lo que sugiere una distribución más balanceada de la abundancia.](graficas_abundancias/grafica_happyface.jpeg)
 
 ## **Discusión**
-En este reporte, utilizamos diversas herramientas para analizar la diversidad y abundancia de especies, combinando paquetes de R con funciones generadas en clase. Inicialmente, intentamos calcular los índices alfa con nuestra propia función, pero encontramos varios problemas, como la generación de valores NaN en algunos casos. Para resolverlo, recurrimos a diversas fuentes, incluyendo internet y asistencia con IA, para identificar si el error provenía de nuestro código o de la base de datos. A pesar de múltiples intentos de ajustar la función y modificar la base de datos, no logramos obtener los resultados esperados.
 
-Debido a estas dificultades, optamos por usar el paquete vegan, que nos permitió calcular los índices alfa de manera más eficiente. Con este paquete, analizamos la diversidad a través de distintos índices, como Shannon, Simpson, Pielou, Chao1, Gini y Simpson inverso. Cada uno de estos índices se enfoca en distintos aspectos de la diversidad:
+En este reporte, utilizamos diversas herramientas para analizar la diversidad y abundancia de especies, combinando paquetes de R con funciones generadas en clase.
+Inicialmente, intentamos calcular los índices alfa con nuestra propia función, pero encontramos varios problemas, como la generación de valores NaN en algunos casos.
+Para resolverlo, recurrimos a diversas fuentes, incluyendo internet y asistencia con IA, para identificar si el error provenía de nuestro código o de la base de datos.
+A pesar de múltiples intentos de ajustar la función y modificar la base de datos, no logramos obtener los resultados esperados.
 
--**Shannon** mide la diversidad considerando tanto riqueza como equitatividad.
+Debido a estas dificultades, optamos por usar el paquete vegan, que nos permitió calcular los índices alfa de manera más eficiente.
+Con este paquete, analizamos la diversidad a través de distintos índices, como Shannon, Simpson, Pielou, Chao1, Gini y Simpson inverso.
+Cada uno de estos índices se enfoca en distintos aspectos de la diversidad:
 
--**Simpson** evalúa la dominancia de unas pocas especies.
+\-**Shannon** mide la diversidad considerando tanto riqueza como equitatividad.
 
--**Pielou** indica qué tan equitativa es la distribución de especies.
+\-**Simpson** evalúa la dominancia de unas pocas especies.
 
--**Chao1** estima la riqueza total, incluyendo especies no observadas.
+\-**Pielou** indica qué tan equitativa es la distribución de especies.
 
--**Gini y Simpson inverso** son variaciones que ayudan a entender la distribución de la abundancia.
+\-**Chao1** estima la riqueza total, incluyendo especies no observadas.
+
+\-**Gini y Simpson inverso** son variaciones que ayudan a entender la distribución de la abundancia.
 
 El uso del paquete vegan facilitó estos cálculos y nos permitió interpretar mejor las diferencias entre los índices, ayudándonos a comprender cómo cada uno refleja distintos aspectos de la biodiversidad.
 
-Por otro lado, al analizar las gráficas de abundancia, pudimos visualizar de manera clara las diferencias en diversidad entre los sitios. La representación gráfica nos permitió identificar rangos de abundancia y observar cómo algunas especies dominaban ciertos sitios mientras que otras tenían distribuciones más equitativas. Estas gráficas fueron clave para entender la estructura de las comunidades y resaltan la importancia de complementar los análisis numéricos con herramientas visuales para obtener una interpretación más completa de los datos.
+Además, realizamos un análisis de rarefacción para evaluar el esfuerzo de muestreo necesario para representar la diversidad de especies en los diferentes sitios.
+Generamos dos versiones de las curvas de rarefacción usando distintos métodos: una con el paquete *vegan* en R y otra con nuestros propios cálculos en *ggplot*.
+Aunque en teoría ambas deberían mostrar los mismos patrones, encontramos diferencias en la forma en que los datos se procesan y visualizan.
+La versión con *vegan* generó curvas más suaves y continuas debido que al ser una libreria predeterminada, utiliza la interpolación de los datos, lo que permite visualizar de manera clara los puntos en los que la riqueza de especies comienza a estabilizarse.
+En cambio, la versión realizada con *ggplot* presentó curvas más bruscas, ya que los datos fueron calculados de manera puntual, sin interpolaciones.
+Esto puede hacer que algunas tendencias no sean tan evidentes a simple vista, aunque mantiene una representación fiel de los datos sin ajustes adicionales.
+A pesar de estas diferencias, ambas gráficas muestran tendencias similares, destacando que sitios como "*Luna*", "*VR*" y "*Happy Face*" tienen mayor riqueza de especies, mientras que "*Verdes*" y "*Naranjas*" presentan menor diversidad.
+
+Por otro lado, al analizar las gráficas de abundancia, pudimos visualizar de manera clara las diferencias en diversidad entre los sitios.
+La representación gráfica nos permitió identificar rangos de abundancia y observar cómo algunas especies dominaban ciertos sitios mientras que otras tenían distribuciones más equitativas.
+Estas gráficas fueron clave para entender la estructura de las comunidades y resaltan la importancia de complementar los análisis numéricos con herramientas visuales para obtener una interpretación más completa de los datos.
 
 ### Preguntas
 
@@ -347,7 +364,7 @@ Como en el caso de las "*Naranjas*" y "*Verdes*", la curva se volvería completa
 
 **6. ¿Cuál de estos índices es más sensible a la diferencia en abundancias?**
 
-El **índice de Simpson** es el más sensible a la diferencia en abundancias porque da más importancia a las especies dominantes.
+El *índice de Simpson* es el más sensible a la diferencia en abundancias porque da más importancia a las especies dominantes.
 Si en un sitio hay una especie que tiene muchos más individuos que las demás, este indice tendra un valor más bajo.
 
 **7. ¿Qué interpretación ecológica tienen las diferencias entre sitios?**
@@ -369,17 +386,23 @@ También puede indicar alteraciones en el ecosistema que favorecen solo a cierta
 
 **10. ¿Qué patrones generales observaste en la diversidad entre los sitios?**
 
-Observamos que la diversidad varía significativamente entre los sitios (bolsas), con algunas comunidades dominadas por pocas especies y otras con una distribución más equitativa. En ciertos sitios, la curva de abundancia mostró una caída abrupta, lo que indica que una o pocas especies son dominantes, mientras que en otros la abundancia estuvo más distribuida. Además, los índices alfa reflejaron estas diferencias, mostrando valores más altos en sitios con mayor equitatividad y riqueza de especies.
+Observamos que la diversidad varía significativamente entre los sitios (bolsas), con algunas comunidades dominadas por pocas especies y otras con una distribución más equitativa.
+En ciertos sitios, la curva de abundancia mostró una caída abrupta, lo que indica que una o pocas especies son dominantes, mientras que en otros la abundancia estuvo más distribuida.
+Además, los índices alfa reflejaron estas diferencias, mostrando valores más altos en sitios con mayor equitatividad y riqueza de especies.
 
 **11. ¿Cuál índice te pareció más útil y por qué?**
 
-En la diversidad beta, el índice más útil fue *Bray-Curtis*, ya que considera la abundancia de especies, proporcionando más información que *Jaccard*, el cual solo mide presencia y ausencia. Esto nos permitió detectar diferencias más detalladas entre comunidades.
+En la diversidad beta, el índice más útil fue *Bray-Curtis*, ya que considera la abundancia de especies, proporcionando más información que *Jaccard*, el cual solo mide presencia y ausencia.
+Esto nos permitió detectar diferencias más detalladas entre comunidades.
 
-En la diversidad alfa, el índice más útil fue *Shannon*, ya que una de las ventajas que notamos fue que este índice considera tanto la abundancia como la riqueza de especies, y nos proporcionó una medida más completa de la diversidad alfa. Es más sensible a cambios, tanto en la abundancia relativa como en la riqueza de especies.
+En la diversidad alfa, el índice más útil fue *Shannon*, ya que una de las ventajas que notamos fue que este índice considera tanto la abundancia como la riqueza de especies, y nos proporcionó una medida más completa de la diversidad alfa.
+Es más sensible a cambios, tanto en la abundancia relativa como en la riqueza de especies.
 
 **12. ¿Cómo podrías aplicar este análisis en estudios ecológicos reales?**
 
-Creemos que podría aplicarse en el monitoreo de ecosistemas ayudando a detectar cambios en la diversidad debido a impactos ambientales como la contaminación, la fragmentación de hábitats o el cambio climático.Por ejemplo en los cambios de diversidad  que pueden ser señales de impactos ambientales. Por ejemplo, si en un ecosistema la diversidad empieza a disminuir, puede indicar que la contaminación está afectando la supervivencia de ciertas especies.La fragmentación de hábitats también puede reducir la cantidad de especies en un área, ya que muchas dependen de espacios amplios y conectados para sobrevivir. Al analizar estos cambios con índices de diversidad nos puede permitir entender mejor cómo están respondiendo los ecosistemas y tomar medidas para su conservación.
+Creemos que podría aplicarse en el monitoreo de ecosistemas ayudando a detectar cambios en la diversidad debido a impactos ambientales como la contaminación, la fragmentación de hábitats o el cambio climático.Por ejemplo en los cambios de diversidad que pueden ser señales de impactos ambientales.
+Por ejemplo, si en un ecosistema la diversidad empieza a disminuir, puede indicar que la contaminación está afectando la supervivencia de ciertas especies.La fragmentación de hábitats también puede reducir la cantidad de especies en un área, ya que muchas dependen de espacios amplios y conectados para sobrevivir.
+Al analizar estos cambios con índices de diversidad nos puede permitir entender mejor cómo están respondiendo los ecosistemas y tomar medidas para su conservación.
 
 ## **Bibliografía**
 
@@ -397,12 +420,14 @@ Creemos que podría aplicarse en el monitoreo de ecosistemas ayudando a detectar
 -   Simberloff, D. (1978). Use of rarefaction and related methods in ecology. In Biological data in water pollution assessment: quantitative and statistical analyses. ASTM International.
 
 ## **Contribuciones del Equipo**
+
 A nosotros no nos gusta dividirnos los trabajos, entonces este reporte se realizó en colaboración en github, todos movimos de todo pero los puntos que pusimos par alas contribuciones personales fue en lo que más se enfocó cada quien.
 
 ***1. Estrella Segobia:*** Cargó y preparó los datos para el análisis, calculó el análisis para la diversidad alfa.
 Realizó y discutio las curvas de rarefacción.
 Contesto preguntas.
 
-***2. David Flores:*** Calculó el análisis de diversidad beta e hizo las matrices, Redactó discusión de índice beta e índice alfa. 
+***2. David Flores:*** Calculó el análisis de diversidad beta e hizo las matrices, Redactó discusión de índice beta e índice alfa.
 
-***3. Daniela Villanueva:*** Formato MarkDown, Redactó la introducción, contestó preguntas, generó las gráficas de abundancia, hizo las discusiones de las gráficas de abundancia. Redactó discusión
+***3. Daniela Villanueva:*** Formato MarkDown, Redactó la introducción, contestó preguntas, generó las gráficas de abundancia, hizo las discusiones de las gráficas de abundancia.
+Redactó discusión
