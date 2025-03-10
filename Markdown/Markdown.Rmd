@@ -25,8 +25,6 @@ En esta práctica, se calcularon los índices de Shannon, Pielou, Simpson, Simps
 library(tidyverse)
 abundancias <- read_csv("datos_crudos/abundancias.csv")
 abundancias
-abundancias1 <- read_csv("datos_crudos/datosbray.csv")
-abundancias1
 ```
 
 
@@ -36,27 +34,15 @@ Para los índices alfa se utilizó la paquetería vegan para poder confirmar si 
 library(vegan)
 ```
 
-```{r}
-#para índices alfa
-mishanon<-function(abundances){
-  prob<-abundances/sum(abundances)
-  return(-sum(prob*log(prob)))
-}
-simpson<-function(abundances){
-  prob<-abundances/sum(abundances)
-  sum(prob*prob)
-}
-```
-
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 # Calcular índices con la librería vegan
-luna_vg <- abundancias[1, 2:12] 
-shannon_luna <- diversity(luna_vg, index = "shannon")
-pielou_luna <- shannon_luna / log(length(luna_vg))  # Pielou es la diversidad de Shannon normalizada
-simpson_luna <- diversity(luna_vg, index = "simpson")
-simpson_inv_luna <- diversity(luna_vg, index = "invsimpson")  # Simpson inverso
-chao1_luna <- estimateR(luna_vg)["Chao1"]
-
+# BOLSA 1 --> LUNA
+luna_vg <- abundancias[1, 2:12]
+shannon_luna<-diversity(luna_vg,index="shannon")
+pielou_luna<-shannon_luna/log(length(luna_vg))
+simpson_luna<-diversity(luna_vg,index="simpson")
+simpson_inv_luna<-diversity(luna_vg,index="invsimpson")
+chao1_luna<-estimateR(luna_vg)["Chao1"]
 
 # BOLSA 2 --> CORAZON
 corazon_vg <- abundancias[2, 2:12] 
