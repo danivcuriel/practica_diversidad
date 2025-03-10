@@ -528,6 +528,7 @@ jac$sitio5-&gt;e
 jac$sitio6-&gt;f
 jac$sitio7-&gt;g</code></pre>
 <p>Estos fueron los resultados de todas las zonas</p>
+<pre><code>## Warning: package &#39;knitr&#39; was built under R version 4.4.2</code></pre>
 <table style="width:100%;">
 <colgroup>
 <col width="14%" />
@@ -893,11 +894,12 @@ asistencia con IA, para identificar si el error provenía de nuestro
 código o de la base de datos. A pesar de múltiples intentos de ajustar
 la función y modificar la base de datos, no logramos obtener los
 resultados esperados.</p>
-<p>Debido a estas dificultades, optamos por usar el paquete vegan, que
-nos permitió calcular los índices alfa de manera más eficiente. Con este
-paquete, analizamos la diversidad a través de distintos índices, como
-Shannon, Simpson, Pielou, Chao1, Gini y Simpson inverso. Cada uno de
-estos índices se enfoca en distintos aspectos de la diversidad:</p>
+<p>Debido a estas dificultades, optamos por usar el paquete
+<em>vegan</em>, que nos permitió calcular los índices alfa de manera más
+eficiente. Con este paquete, analizamos la diversidad a través de
+distintos índices, como Shannon, Simpson, Pielou, Chao1, Gini y Simpson
+inverso. Cada uno de estos índices se enfoca en distintos aspectos de la
+diversidad:</p>
 <p>-<strong>Shannon</strong> mide la diversidad considerando tanto
 riqueza como equitatividad.</p>
 <p>-<strong>Simpson</strong> evalúa la dominancia de unas pocas
@@ -908,9 +910,9 @@ de especies.</p>
 no observadas.</p>
 <p>-<strong>Gini y Simpson inverso</strong> son variaciones que ayudan a
 entender la distribución de la abundancia.</p>
-<p>El uso del paquete vegan facilitó estos cálculos y nos permitió
-interpretar mejor las diferencias entre los índices, ayudándonos a
-comprender cómo cada uno refleja distintos aspectos de la
+<p>El uso del paquete <em>vegan</em> facilitó estos cálculos y nos
+permitió interpretar mejor las diferencias entre los índices,
+ayudándonos a comprender cómo cada uno refleja distintos aspectos de la
 biodiversidad.</p>
 <p>Además, realizamos un análisis de rarefacción para evaluar el
 esfuerzo de muestreo necesario para representar la diversidad de
@@ -947,7 +949,7 @@ visuales para obtener una interpretación más completa de los datos.</p>
 <p>Los valores entre los índices reflejan una diferencia significativa
 entre las bolsas (sitios). El <em>índice de Shannon</em> muestra que las
 bolsas como Luna, Happy_Face, Alfa, Corazón y VR tienen una alta
-diversidad, con valores cercanos a 2.3, lo que indica una distribución
+diversidad, con valores cercanos a 2.4, lo que indica una distribución
 equilibrada de especies. En contraste, Naranjas y Verdes presentan un
 valor de 0, lo que sugiere la presencia de solo una especie dominante en
 esos sitios. El <em>índice de Simpson</em>, que mide la probabilidad de
