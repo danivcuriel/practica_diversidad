@@ -428,12 +428,79 @@ abundancias</code></pre>
 ## 6 vr       12     12      4      7      11        0     12      2      0       3
 ## 7 happ…     5      7      5      3       5        4      3      2      1       9
 ## # ℹ 2 more variables: verde_1 &lt;dbl&gt;, morado &lt;dbl&gt;</code></pre>
+<pre class="r"><code>class(abundancias)</code></pre>
+<pre><code>## [1] &quot;spec_tbl_df&quot; &quot;tbl_df&quot;      &quot;tbl&quot;         &quot;data.frame&quot;</code></pre>
 </div>
 <div id="índices-de-diversidad-alfa" class="section level2">
 <h2>Índices de diversidad alfa</h2>
 <p>Para los índices alfa se utilizó la paquetería vegan para poder
 confirmar si nuestras funciones estaban bien…</p>
 <pre class="r"><code>library(vegan)</code></pre>
+<pre class="r"><code># Calcular índices con la librería vegan
+luna_vg &lt;- abundancias[1, 2:12] 
+shannon_luna &lt;- diversity(luna_vg, index = &quot;shannon&quot;)
+pielou_luna &lt;- shannon_luna / log(length(luna_vg))  # Pielou es la diversidad de Shannon normalizada
+simpson_luna &lt;- diversity(luna_vg, index = &quot;simpson&quot;)
+simpson_inv_luna &lt;- diversity(luna_vg, index = &quot;invsimpson&quot;)  # Simpson inverso
+chao1_luna &lt;- estimateR(luna_vg)[&quot;Chao1&quot;]
+result &lt;- estimateR(luna_vg)
+print(result)</code></pre>
+<pre><code>##                  [,1]
+## S.obs    1.100000e+01
+## S.chao1  1.100000e+01
+## se.chao1 0.000000e+00
+## S.ACE    1.100000e+01
+## se.ACE   1.825012e-08</code></pre>
+<pre class="r"><code>chao1_luna1&lt;-estimateR(luna_vg)[1, , drop=FALSE]
+
+
+# BOLSA 2 --&gt; CORAZON
+corazon_vg &lt;- abundancias[2, 2:12] 
+shannon_corazon &lt;- diversity(corazon_vg, index = &quot;shannon&quot;)
+pielou_corazon &lt;- shannon_corazon / log(length(corazon_vg))
+simpson_corazon &lt;- diversity(corazon_vg, index = &quot;simpson&quot;)
+simpson_inv_corazon &lt;- diversity(corazon_vg, index = &quot;invsimpson&quot;)
+chao1_corazon &lt;- estimateR(corazon_vg)[&quot;Chao1&quot;]
+
+# BOLSA 3 --&gt; NARANJAS
+naranjas_vg &lt;- abundancias[3, 2:12]
+shannon_naranjas &lt;- diversity(naranjas_vg, index = &quot;shannon&quot;)
+pielou_naranjas &lt;- shannon_naranjas / log(length(naranjas_vg))
+simpson_naranjas &lt;- diversity(naranjas_vg, index = &quot;simpson&quot;)
+simpson_inv_naranjas &lt;- diversity(naranjas_vg, index = &quot;invsimpson&quot;)
+chao1_naranjas &lt;- estimateR(naranjas_vg)[&quot;Chao1&quot;]
+
+# BOLSA 4 --&gt; VERDES
+verdes_vg &lt;- abundancias[4, 2:12]
+shannon_verdes &lt;- diversity(verdes_vg, index = &quot;shannon&quot;)
+pielou_verdes &lt;- shannon_verdes / log(length(verdes_vg))
+simpson_verdes &lt;- diversity(verdes_vg, index = &quot;simpson&quot;)
+simpson_inv_verdes &lt;- diversity(verdes_vg, index = &quot;invsimpson&quot;)
+chao1_verdes &lt;- estimateR(verdes_vg)[&quot;Chao1&quot;]
+
+# BOLSA 5 --&gt; ALFA
+alfa_vg &lt;- abundancias[5, 2:12]
+shannon_alfa &lt;- diversity(alfa_vg, index = &quot;shannon&quot;)
+pielou_alfa &lt;- shannon_alfa / log(length(alfa_vg))
+simpson_alfa &lt;- diversity(alfa_vg, index = &quot;simpson&quot;)
+simpson_inv_alfa &lt;- diversity(alfa_vg, index = &quot;invsimpson&quot;)
+chao1_alfa &lt;- estimateR(alfa_vg)[&quot;Chao1&quot;]
+
+# BOLSA 6 --&gt; VR
+vr_vg &lt;- abundancias[6, 2:12]
+shannon_vr &lt;- diversity(vr_vg, index = &quot;shannon&quot;)
+pielou_vr &lt;- shannon_vr / log(length(vr_vg))
+simpson_vr &lt;- diversity(vr_vg, index = &quot;simpson&quot;)
+simpson_inv_vr &lt;- diversity(vr_vg, index = &quot;invsimpson&quot;)
+chao1_vr &lt;- estimateR(vr_vg)[&quot;Chao1&quot;]
+
+# BOLSA 7 --&gt; HAPPY_FACE
+happy_face_vg &lt;- abundancias[7, 2:12]
+shannon_happy_face &lt;- diversity(happy_face_vg, index = &quot;shannon&quot;)
+pielou_happy_face &lt;- shannon_happy_face / log(length(happy_face_vg))
+simpson_happy_face &lt;- diversity(happy_face_vg, index = &quot;simpson&quot;)
+simpson_inv_happy_face &lt;- diversity(happy_face_vg, index = &quot;invsimpson&quot;)
+chao1_happy_face &lt;- estimateR(happy_face_vg)[&quot;Chao1&quot;]</code></pre>
 <pre class="r"><code># Crear un data frame con los resultados
 resultados_vg &lt;- data.frame(
   Bolsa = c(&quot;Luna&quot;, &quot;Corazon&quot;, &quot;Naranjas&quot;, &quot;Verdes&quot;, &quot;Alfa&quot;, &quot;VR&quot;, &quot;Happy_Face&quot;),
