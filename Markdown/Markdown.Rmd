@@ -3,22 +3,40 @@ title: "Análisis de diversidad de especies en sitios simulados"
 author: "Daniela Villanueva, Estrella Segobia, David Flores"
 date: "2025-03-10"
 output: html_document
+editor_options: 
+  markdown: 
+    wrap: sentence
 ---
 
-# Introducción 
-En esta práctica exploraremos la diversidad de especies simulada en diferentes sitios, representados por bolsas con fichas de colores que simulan diferentes especies. Cada color representa una especie distinta, y la frecuencia de cada ficha es indicativa de la abundancia de esa especie en el sitio.
+# Introducción
 
-La diversidad de especies es un aspecto fundamental en los estudios ecológicos, y su análisis permite evaluar la estructura y composición de comunidades biológicas. La diversidad alfa mide la variabilidad dentro de un solo sitio y se cuantifica mediante diferentes índices. La entropía de Shannon es una de las métricas más utilizadas para medir la diversidad alfa, combinando riqueza y equitatividad de especies (Gauthier & Derôme, 2020, 2021). Sin embargo, un solo valor de Shannon puede representar múltiples combinaciones de riqueza y equitatividad, lo que podría ocultar diferencias ecológicas importantes.
+En esta práctica exploraremos la diversidad de especies simulada en diferentes sitios, representados por bolsas con fichas de colores que simulan diferentes especies.
+Cada color representa una especie distinta, y la frecuencia de cada ficha es indicativa de la abundancia de esa especie en el sitio.
 
-Los índices de diversidad buscan capturar tanto la riqueza como la equitatividad de especies en las comunidades biológicas. El método de Pielou, que representa las abundancias relativas de las tres especies más comunes, ha sido mejorado para acomodar datos de series temporales y relaciones en n dimensiones (Clark, 1992). El índice de Simpson es ampliamente utilizado, aunque tiene limitaciones (Sagar & Sharma, 2012). La diversidad de Simpson, junto con la riqueza de especies y la información de Shannon, son las medidas no paramétricas más empleadas, cada una con sesgos de muestreo y varianza distintos (Lande, 1996). A diferencia de otros índices, el de Simpson posee un estimador no sesgado y puede descomponerse en componentes de diversidad alfa y beta (Lande, 1996). Tanto el índice de Shannon como el de Gini-Simpson son comúnmente utilizados, aunque presentan limitaciones en su interpretación y comparación (Jost & Oreja, 2012; Jost, 2006). 
+La diversidad de especies es un aspecto fundamental en los estudios ecológicos, y su análisis permite evaluar la estructura y composición de comunidades biológicas.
+La diversidad alfa mide la variabilidad dentro de un solo sitio y se cuantifica mediante diferentes índices.
+La entropía de Shannon es una de las métricas más utilizadas para medir la diversidad alfa, combinando riqueza y equitatividad de especies (Gauthier & Derôme, 2020, 2021).
+Sin embargo, un solo valor de Shannon puede representar múltiples combinaciones de riqueza y equitatividad, lo que podría ocultar diferencias ecológicas importantes.
 
-La diversidad beta mide los cambios en la composición de especies entre sitios en distintas escalas espaciales y temporales, y es un enfoque clave en la investigación sobre biodiversidad (Chen et al., 2010). Se han desarrollado múltiples índices para cuantificar la diversidad beta, entre los cuales los de Jaccard y Sørensen son los más utilizados (Chen et al., 2010; Cardoso et al., 2015).
+Los índices de diversidad buscan capturar tanto la riqueza como la equitatividad de especies en las comunidades biológicas.
+El método de Pielou, que representa las abundancias relativas de las tres especies más comunes, ha sido mejorado para acomodar datos de series temporales y relaciones en n dimensiones (Clark, 1992).
+El índice de Simpson es ampliamente utilizado, aunque tiene limitaciones (Sagar & Sharma, 2012).
+La diversidad de Simpson, junto con la riqueza de especies y la información de Shannon, son las medidas no paramétricas más empleadas, cada una con sesgos de muestreo y varianza distintos (Lande, 1996).
+A diferencia de otros índices, el de Simpson posee un estimador no sesgado y puede descomponerse en componentes de diversidad alfa y beta (Lande, 1996).
+Tanto el índice de Shannon como el de Gini-Simpson son comúnmente utilizados, aunque presentan limitaciones en su interpretación y comparación (Jost & Oreja, 2012; Jost, 2006).
 
-Para evaluar la riqueza de especies considerando diferencias en el tamaño de la muestra, se utiliza la rarefacción, una técnica estadística que permite comparar diversidades comunitarias y estimar la riqueza de especies (Gart et al., 1982). Esta técnica genera curvas de rarefacción, que representan la riqueza esperada de especies en función del tamaño de la muestra (Simberloff, 1978). Estas curvas son herramientas clave para analizar la diversidad taxonómica, evaluar la heterogeneidad ambiental y comparar comunidades biológicas (Gart et al., 1982).
+La diversidad beta mide los cambios en la composición de especies entre sitios en distintas escalas espaciales y temporales, y es un enfoque clave en la investigación sobre biodiversidad (Chen et al., 2010).
+Se han desarrollado múltiples índices para cuantificar la diversidad beta, entre los cuales los de Jaccard y Sørensen son los más utilizados (Chen et al., 2010; Cardoso et al., 2015).
 
-En esta práctica, se calcularon los índices de Shannon, Pielou, Simpson, Simpson inverso, Gini y Chao1 para estimar la diversidad alfa. Además, se generaron curvas de rarefacción y gráficos de abundancia ordenada para cada sitio. Finalmente, se calculó la diversidad beta mediante los índices de Jaccard y Bray-Curtis, con el objetivo de analizar las diferencias en la composición de especies entre los sitios simulados.
+Para evaluar la riqueza de especies considerando diferencias en el tamaño de la muestra, se utiliza la rarefacción, una técnica estadística que permite comparar diversidades comunitarias y estimar la riqueza de especies (Gart et al., 1982).
+Esta técnica genera curvas de rarefacción, que representan la riqueza esperada de especies en función del tamaño de la muestra (Simberloff, 1978).
+Estas curvas son herramientas clave para analizar la diversidad taxonómica, evaluar la heterogeneidad ambiental y comparar comunidades biológicas (Gart et al., 1982).
 
-## Visualización de datos 
+En esta práctica, se calcularon los índices de Shannon, Pielou, Simpson, Simpson inverso, Gini y Chao1 para estimar la diversidad alfa.
+Además, se generaron curvas de rarefacción y gráficos de abundancia ordenada para cada sitio.
+Finalmente, se calculó la diversidad beta mediante los índices de Jaccard y Bray-Curtis, con el objetivo de analizar las diferencias en la composición de especies entre los sitios simulados.
+
+## Visualización de datos
 
 ```{r, message=FALSE, warning=FALSE}
 # CARGAR DATOS
@@ -27,9 +45,10 @@ abundancias <- read_csv("datos_crudos/abundancias.csv")
 abundancias
 ```
 
-
 ## Índices de diversidad alfa
+
 Para los índices alfa se utilizó la paquetería vegan para poder confirmar si nuestras funciones estaban bien...
+
 ```{r, warning=FALSE, message=FALSE}
 library(vegan)
 ```
@@ -109,10 +128,36 @@ print(resultados_vg)
 
 ```
 
+## Curvas de Rarefacción
+
+Las dos curvas de rarefacción presentadas muestran patrones similares en la acumulación del número de especies con respecto al esfuerzo de muestreo, aunque hay algunas diferencias notables en la representación de los datos.
+La primera imagen corresponde a un análisis realizado con el paquete vegan, mientras que la segunda fue generada con cálculos propios utilizando ggplot.
+
+#### **Gráfica de rarefacción utilizando la libreria vegan**
+
+Esta gráfica proporciona una representación más continua y posiblemente más precisa debido a su metodología estandarizada, ya que por ser una libreria predeterminada interpola los datos.
+
+##### ![Esta gráfica proporciona una representación más continua y posiblemente más precisa debido a su metodología estandarizada, ya que por ser una libreria predeterminada interpola los datos.](resultados/todas_curvas_rf_bg.png){width="639"}
+
+#### **Gráfica de rarefacción utilizando ggplot**
+
+Esta gráfica fue generada utilizando nuestros calculos hechos en clase, lo que permite representar la relacion entre el muestreo y la acumulacion de especies.
+Sin embargo, al no tener interpolacion de los datos, ni estar estandarizado, podemos observar cambios mas bruscos entre puntos, pero logrando observar el patron esperado.
+
+##### ![Esta gráfica fue generada utilizando nuestros calculos hechos en clase, lo que permite representar la relacion entre el muestreo y la acumulacion de especies. Sin embargo, al no tener interpolacion de los datos, ni estar estandarizado, podemos observar cambios mas bruscos entre puntos, pero logrando observar el patron esperado.](resultados/curvas_combinadas_ggplot.png)
+
+--\> Ambas gráficas expresan la relación esperada en un análisis de rarefacción: el número de especies se incrementa con el tamaño de la muestra y tiende a estabilizarse en los sitios con mayor diversidad.
+En ambas representaciones, se identifican tendencias similares.
+Los sitios *"Luna"* *"VR"* y *"Happy Face"* presentan las curvas más elevadas, lo que indica una mayor riqueza de especies en esas localidades.
+En contraste, *"Verdes"* y *"Naranjas"* muestran acumulaciones más bajas, lo que sugiere que la diversidad en esos sitios es considerablemente menor.
+Además, en lugares como *"VR"* y *"Happy Face"*, la curva alcanza rápidamente un punto de estabilización, lo que indica que el esfuerzo de muestreo fue suficiente para capturar la mayor parte de la diversidad esperada.
 
 ## Índices de diversidad beta
-#### Índice de Jaccard 
+
+#### Índice de Jaccard
+
 La función se realizó con ayuda de el siguiente recurso de internet ([este de aquí!!](https://www.r-bloggers.com/2021/11/how-to-calculate-jaccard-similarity-in-r/)) y quedó de la siguiente manera, está organizado de manera que tome en cuenta los caracteres igual a 1 de cada uno de los vectores o en este caso columnas sin tomar en cuenta los 0, que alteraban el resultado.
+
 ```{r}
 jaccard<-function(a,b){
   interseccion=length(which(a==1 & b==1))
@@ -120,8 +165,10 @@ jaccard<-function(a,b){
   return(interseccion/union)
 }
 ```
+
 Se aplicó el índice a cada combinación de zonas o bolsas utilizadas para la práctica, es decir, **bolsa 1/zona 1** ***Vs*** **todas las demás** y así respectivamente con las demás zonas.
 El pimer paso fue delimitar las zonas para simplificar la sintaxis de la función, para eso se crearon zonas o sitios de la ***a*** a la ***g***:
+
 ```{r}
 read.csv("datos_crudos/datosjaccard.csv")->jac
 jac$sitio1->a
@@ -132,7 +179,9 @@ jac$sitio5->e
 jac$sitio6->f
 jac$sitio7->g
 ```
+
 Estos fueron los resultados de todas las zonas
+
 ```{r,echo=FALSE}
 zonas<-data.frame(
   zona1=c(jaccard(a,a),jaccard(a,b),jaccard(a,c),jaccard(a,d),jaccard(a,e),jaccard(a,f),jaccard(a,g)),
@@ -146,10 +195,12 @@ zonas<-data.frame(
 library(knitr)
 kable(zonas,col.names=c("zona1","zona2","zona3","zona4","zona5","zona6","zona7"))
 ```
-Como se puede observar en la tabla, la diagonal tiene un valor de 1.0, esto es debido a que es la comparación de cada zona consigo misma, es decir, la **zona 1 vs zona 1**, **zona 2 vs zona 2** y así sucesivamente, de igual manera hay otros dos valores con 1 que corresponden a la comparación de la **zona 1 con la zona 7**, este valor es debido a que en estas dos zonas hay presencia de todas las especies registradas en el experimento, de acuerdo al índice de Jaccard, el valor igual a 1 significa que esas zonas son completamente iguales. 
-Para la discusión de este índice, se tomaron en cuenta los valores debajo de la diagonal para fines prácticos, aquí se observa un ampliio rango de valores, desde 0 hasta 1, los valores con 0.08 corresponden a la comparación con las zonas que solo tenían fichas de un solo color, de manera que al comararlos con las demás zonas, sale un valor bajo, que de acuerdo al índice de Jaccard, significa que estos dos sitios tienen muy poco en común en cuanto a la presencia de especies, fuera de esta comparación, los demás sitios tienen un rango de valores más estrecho, desde 0.1 a 0.8 los valores más bajos (**0.125**, **0.111** y **0.083**) corresponden a las comparaciones hechas con las zonas 3 y  4, que son las que tuvieron fichas de un solo color, mientras que los valores medios y altos corresponden a los demás sitios en donde hubo pocas diferencias en comparación a los resultados anteriormente descritos.
+
+Como se puede observar en la tabla, la diagonal tiene un valor de 1.0, esto es debido a que es la comparación de cada zona consigo misma, es decir, la **zona 1 vs zona 1**, **zona 2 vs zona 2** y así sucesivamente, de igual manera hay otros dos valores con 1 que corresponden a la comparación de la **zona 1 con la zona 7**, este valor es debido a que en estas dos zonas hay presencia de todas las especies registradas en el experimento, de acuerdo al índice de Jaccard, el valor igual a 1 significa que esas zonas son completamente iguales.
+Para la discusión de este índice, se tomaron en cuenta los valores debajo de la diagonal para fines prácticos, aquí se observa un ampliio rango de valores, desde 0 hasta 1, los valores con 0.08 corresponden a la comparación con las zonas que solo tenían fichas de un solo color, de manera que al comararlos con las demás zonas, sale un valor bajo, que de acuerdo al índice de Jaccard, significa que estos dos sitios tienen muy poco en común en cuanto a la presencia de especies, fuera de esta comparación, los demás sitios tienen un rango de valores más estrecho, desde 0.1 a 0.8 los valores más bajos (**0.125**, **0.111** y **0.083**) corresponden a las comparaciones hechas con las zonas 3 y 4, que son las que tuvieron fichas de un solo color, mientras que los valores medios y altos corresponden a los demás sitios en donde hubo pocas diferencias en comparación a los resultados anteriormente descritos.
 
 #### Índice de Bray-Curtis
+
 ```{r}
 braycurtis<-function(a,b){
   mini<-pmin(a,b)
@@ -158,7 +209,9 @@ braycurtis<-function(a,b){
   return(1-arri/aba)
 }
 ```
+
 Estos son los resultados para el índice de Bray-Curtis para cada una de las zonas
+
 ```{r,echo=FALSE}
 read.csv("datos_crudos/datosbray.csv")->bray
 bray$sitio1->a1
@@ -185,63 +238,95 @@ library(knitr)
 kable(zonas1,col.names=c("zona1","zona2","zona3","zona4","zona5","zona6","zona7"))
 ```
 
-## **Curvas de Rarefacción**
+## Gráficas de Abundancia
 
-
-### Gráficas de Abundancia 
-
-Las distribuciones de rango abundancia (DRA) son una herramienta poderosa para analizar los patrones de biodiversidad en las comunidades ecológicas. Las DRA representan la abundancia relativa de las especies, proporcionando información sobre la abundancia, la riqueza y la equidad (Foster & Dunstan, 2010). Estas distribuciones pueden modelarse estadísticamente para examinar cómo cambia la biodiversidad a través de gradientes ambientales (Foster & Dunstan, 2010; Dunstan et al., 2012). Las DRA se han utilizado para identificar puntos calientes de biodiversidad y áreas con un alto número de especies raras (Dunstan et al., 2012).
+Las distribuciones de rango abundancia (DRA) son una herramienta poderosa para analizar los patrones de biodiversidad en las comunidades ecológicas.
+Las DRA representan la abundancia relativa de las especies, proporcionando información sobre la abundancia, la riqueza y la equidad (Foster & Dunstan, 2010).
+Estas distribuciones pueden modelarse estadísticamente para examinar cómo cambia la biodiversidad a través de gradientes ambientales (Foster & Dunstan, 2010; Dunstan et al., 2012).
+Las DRA se han utilizado para identificar puntos calientes de biodiversidad y áreas con un alto número de especies raras (Dunstan et al., 2012).
 
 #### **Gráfica de abundancias de la Bolsa Luna**
+
 ![En esta gráfica de abundancia de la bolsa luna, observamos una mayor diversidad de especies y una distribución más equilibrada de abundancias. La mayoría de las especies tienen valores similares, lo que evita una curva con dominancia marcada y da lugar a una distribución más uniforme.](graficas_abundancias/grafica_luna.jpeg)
 
 #### **Gráfica de abundancias de la Bolsa Corazón**
+
 ![En esta gráfica, observamos una menor diversidad de especies en comparación con otras bolsas. La abundancia está distribuida de manera desigual, con algunas especies dominantes, lo que se refleja en una curva que cae abruptamente.](graficas_abundancias/grafica_corazon.jpeg)
 
-
 #### **Gráfica de abundancias de Bolsa Naranja**
+
 ![Las curvas de abundancia de las bolsas que contienen solo naranjas o verdes aparecen como una línea en lugar de una curva porque solo tienen una única categoría con abundancia distinta de cero. En estos casos, no hay una distribución de abundancias entre múltiples especies, sino que toda la abundancia está concentrada en una sola. Esto genera una línea plana en el "gráfico" o sea en la foto en lugar de una curva descendente, ya que no hay diferencias de equitatividad o dominancia dentro de la bolsa, solo una presencia exclusiva de una especie.](graficas_abundancias/grafica_naranja.jpeg)
 
 #### **Gráfica de abundancias de Bolsa Verde**
+
 ![](graficas_abundancias/grafica_verde.jpeg)
 
-
 #### **Gráfica de abundancias de la Bolsa Alfa**
+
 ![En esta gráfica, la caída abrupta es aún más marcada que en otros sitios. Aunque puede haber una mayor diversidad de especies, la abundancia está dominada por solo dos, mientras que el resto presenta valores mucho menores. La curva inicia con un pico alto, desciende rápidamente y luego se mantiene casi constante con abundancias bajas en las demás especies.](graficas_abundancias/grafica_alfa.jpeg)
 
-
 #### **Gráfica de abundancias de la Bolsa VR**
+
 ![En esta gráfica, la abundancia inicial se mantiene constante porque varias especies tienen valores similares antes de que la curva caiga abruptamente hacia las especies menos abundantes, con hasta un solo individuo. Aunque hay mayor diversidad que en otros sitios, la distribución no es completamente uniforme, lo que impide que la curva sea constante.](graficas_abundancias/grafica_VR.jpeg)
 
-
 #### **Gráfica de abundancias de la Bolsa Happy Face**
+
 ![En esta gráfica, la abundancia se mantiene más constante en comparación con otros sitios, reflejando una mayor equitatividad entre las especies. Aunque la línea desciende al cambiar de especies, lo hace de manera gradual, sin caídas drásticas, lo que sugiere una distribución más balanceada de la abundancia.](graficas_abundancias/grafica_happyface.jpeg)
 
-
-## **Discusión** 
-
+## **Discusión**
 
 ### Preguntas
+
 **1. ¿Cómo varían los valores de los índices entre los sitios? ¿Qué diferencias resaltan?**
-Los valores entre los índices reflejan una diferencia significativa entre las bolsas (sitios). El **índice de Shannon** muestra que las bolsas como Luna, Happy_Face, Alfa, Corazón y VR tienen una alta diversidad, con valores cercanos a 2.3, lo que indica una distribución equilibrada de especies. En contraste, Naranjas y Verdes presentan un valor de 0, lo que sugiere la presencia de solo una especie dominante en esos sitios. El **índice de Simpson**, que mide la probabilidad de que dos individuos seleccionados al azar pertenezcan a la misma especie, sigue un patrón similar, con valores cercanos a 0.9 en las bolsas diversas, como Luna y VR, y 0 en las bolsas con baja diversidad.Finalmente, el **índice de Pielou**, que evalúa la equidad de la distribución de especies, muestra valores altos en las bolsas diversas (cerca de 2.3), mientras que las bolsas con baja diversidad, como Naranjas y Verdes, tienen un índice de 0, reflejando una distribución desigual en estas áreas.
+
+Los valores entre los índices reflejan una diferencia significativa entre las bolsas (sitios).
+El *índice de Shannon* muestra que las bolsas como Luna, Happy_Face, Alfa, Corazón y VR tienen una alta diversidad, con valores cercanos a 2.3, lo que indica una distribución equilibrada de especies.
+En contraste, Naranjas y Verdes presentan un valor de 0, lo que sugiere la presencia de solo una especie dominante en esos sitios.
+El *índice de Simpson*, que mide la probabilidad de que dos individuos seleccionados al azar pertenezcan a la misma especie, sigue un patrón similar, con valores cercanos a 0.9 en las bolsas diversas, como Luna y VR, y 0 en las bolsas con baja diversidad.Finalmente, el *índice de Pielou*, que evalúa la equidad de la distribución de especies, muestra valores altos en las bolsas diversas (cerca de 2.3), mientras que las bolsas con baja diversidad, como Naranjas y Verdes, tienen un índice de 0, reflejando una distribución desigual en estas áreas.
 
 **2. ¿Cuál índice es más sensible a especies raras?**
 
+El *índice de Shannon*, porque toma en cuenta tanto la cantidad de especies como su equitatividad.
+Si hay muchas especies raras, su valor será más alto en comparación con otros índices que solo consideran la especie más abundante.
+
 **3. ¿Por qué el índice de Pielou nos da información sobre la equitatividad de la comunidad?**
-El índice de Pielou compara la diversidad que realmente hay en la comunidad con la diversidad "perfecta" que habría si todas las especies tuvieran la misma cantidad de invidviduos. Esto dice que tan "justamente" están repartidos los individuos entre las especies de una comunidad. Un valor de 1 significa que la repartición es equitativa y un valor bajo de 0 significa que algunas especies dominan sobre las demás.
+
+El índice de Pielou compara la diversidad que realmente hay en la comunidad con la diversidad "perfecta" que habría si todas las especies tuvieran la misma cantidad de invidviduos.
+Esto dice que tan "justamente" están repartidos los individuos entre las especies de una comunidad.
+Un valor de 1 significa que la repartición es equitativa y un valor bajo de 0 significa que algunas especies dominan sobre las demás.
 
 **4. ¿Cuál sitio parece tener mayor diversidad según la curva de rarefacción? ¿Por qué?**
 
+El sitio con mayor diversidad es *Luna*, porque su curva de rarefacción sube más alto que las demás, lo que indica que tiene un mayor número de especies conforme se extraen más muestras.
+En cambio, los sitios con curvas más bajas tienen menos especies.
+
 **5. ¿Cómo afecta el tamaño de la muestra en la forma de la curva?**
+
+El tamaño de la muestra afecta la curva porque al principio, cuando se extraen fichas, se descubren nuevas especies rápidamente, haciendo que la curva suba de manera pronunciada.
+Sin embargo, conforme se sigue aumentando la muestra, las especies nuevas aparecen con menos frecuencia y la curva se va estabilizando.
+Como en el caso de las "*Naranjas*" y "*Verdes*", la curva se volvería completamente plana cuando ya no haya más especies nuevas por encontrar.
 
 **6. ¿Cuál de estos índices es más sensible a la diferencia en abundancias?**
 
+El **índice de Simpson** es el más sensible a la diferencia en abundancias porque da más importancia a las especies dominantes.
+Si en un sitio hay una especie que tiene muchos más individuos que las demás, este indice tendra un valor más bajo.
+
 **7. ¿Qué interpretación ecológica tienen las diferencias entre sitios?**
 
+Las diferencias en los índices pueden indicar distintos factores ecológicos.
+Sitios con alta diversidad y equidad pueden tener condiciones ambientales favorables y menos competencia, mientras que los sitios donde una especie domina pueden reflejar estrés ambiental, competencia fuerte o condiciones que solo favorecen a unas pocas especies.
+
 **8. ¿Cómo interpretas la forma de las curvas de abundancia?**
-Las curvas de abundancia muestran una alta variabilidad entre los diversos sitios (bolsas), reflejando diferencias en la equitatividad y dominancia de las categorías. Algunas bolsas presentan distribuciones más uniformes, mientras que otras tienen una categoría dominante con valores cercanos a cero en las demás. Esto indica que la composición varía significativamente entre muestras, afectando la interpretación de la diversidad y posible estabilidad del sistema analizado.
+
+Las curvas de abundancia muestran una alta variabilidad entre los diversos sitios (bolsas), reflejando diferencias en la equitatividad y dominancia de las categorías.
+Algunas bolsas presentan distribuciones más uniformes, mientras que otras tienen una categoría dominante con valores cercanos a cero en las demás.
+Esto indica que la composición varía significativamente entre muestras, afectando la interpretación de la diversidad y posible estabilidad del sistema analizado.
 
 **9. ¿Qué implicaciones tienen para la dominancia de especies?**
+
+Si en un sitio una especie domina, significa que las demás tienen dificultades para competir.
+Esto puede deberse a que la especie dominante tiene ventajas adaptativas, como mejor acceso a recursos o resistencia a condiciones adversas.
+También puede indicar alteraciones en el ecosistema que favorecen solo a ciertas especies.
 
 **10. ¿Qué patrones generales observaste en la diversidad entre los sitios?**
 
@@ -249,24 +334,27 @@ Las curvas de abundancia muestran una alta variabilidad entre los diversos sitio
 
 **12. ¿Cómo podrías aplicar este análisis en estudios ecológicos reales?**
 
-
-
 ## **Bibliografía**
-- Foster, S. D., & Dunstan, P. K. (2010). The analysis of biodiversity using rank abundance distributions. Biometrics, 66(1), 186-195.
-- Dunstan, P. K., Bax, N. J., Foster, S. D., Williams, A., & Althaus, F. (2012). Identifying hotspots for biodiversity management using rank abundance distributions. Diversity and Distributions, 18(1), 22-32.
-- Gauthier, J., & Derome, N. (2020). Evenness-richness scatter plots: a graphical, intuitive approach to alpha diversity analysis. bioRxiv, 2020-09.
-- Clark, M. J. R. (1992). Enhancement to the Pielou Method for estimating the diversity of aquatic communities. Environmental toxicology and chemistry, 11(11), 1559-1565.
-- Sagar, R., & Sharma, G. P. (2012). Measurement of alpha diversity using Simpson index (1/Lamda): the jeopardy. Environmental Skeptics and Critics, 1(1), 23.
-- Lande, R. (1996). Statistics and partitioning of species diversity, and similarity among multiple communities. Oikos, 5-13.
-- Jost, L., & González-Oreja, J. (2012). Midiendo la diversidad biológica: más allá del índice de Shannon. Acta zoológica lilloana, 3-14.
-- Jost, L. (2006). Entropy and diversity. Oikos, 113(2), 363-375.
-- Chen, S., Ouyang, Z., Xu, W., & Xiao, Y. (2010). A review of beta diversity studies. Biodiversity Science, 18(4), 323-335.
-- Cardoso, P., Rigal, F., & Carvalho, J. C. (2015). BAT–Biodiversity Assessment Tools, an R package for the measurement and estimation of alpha and beta taxon, phylogenetic and functional diversity. Methods in Ecology and Evolution, 6(2), 232-236.
-- Gart, J. J., Siegel, A. F., & German, R. Z. (1982). Rarefaction and taxonomic diversity. Biometrics, 235-241.
-- Simberloff, D. (1978). Use of rarefaction and related methods in ecology. In Biological data in water pollution assessment: quantitative and statistical analyses. ASTM International.
 
+-   Foster, S. D., & Dunstan, P. K. (2010). The analysis of biodiversity using rank abundance distributions. Biometrics, 66(1), 186-195.
+-   Dunstan, P. K., Bax, N. J., Foster, S. D., Williams, A., & Althaus, F. (2012). Identifying hotspots for biodiversity management using rank abundance distributions. Diversity and Distributions, 18(1), 22-32.
+-   Gauthier, J., & Derome, N. (2020). Evenness-richness scatter plots: a graphical, intuitive approach to alpha diversity analysis. bioRxiv, 2020-09.
+-   Clark, M. J. R. (1992). Enhancement to the Pielou Method for estimating the diversity of aquatic communities. Environmental toxicology and chemistry, 11(11), 1559-1565.
+-   Sagar, R., & Sharma, G. P. (2012). Measurement of alpha diversity using Simpson index (1/Lamda): the jeopardy. Environmental Skeptics and Critics, 1(1), 23.
+-   Lande, R. (1996). Statistics and partitioning of species diversity, and similarity among multiple communities. Oikos, 5-13.
+-   Jost, L., & González-Oreja, J. (2012). Midiendo la diversidad biológica: más allá del índice de Shannon. Acta zoológica lilloana, 3-14.
+-   Jost, L. (2006). Entropy and diversity. Oikos, 113(2), 363-375.
+-   Chen, S., Ouyang, Z., Xu, W., & Xiao, Y. (2010). A review of beta diversity studies. Biodiversity Science, 18(4), 323-335.
+-   Cardoso, P., Rigal, F., & Carvalho, J. C. (2015). BAT–Biodiversity Assessment Tools, an R package for the measurement and estimation of alpha and beta taxon, phylogenetic and functional diversity. Methods in Ecology and Evolution, 6(2), 232-236.
+-   Gart, J. J., Siegel, A. F., & German, R. Z. (1982). Rarefaction and taxonomic diversity. Biometrics, 235-241.
+-   Simberloff, D. (1978). Use of rarefaction and related methods in ecology. In Biological data in water pollution assessment: quantitative and statistical analyses. ASTM International.
 
 ## **Contribuciones del Equipo**
-***1. Estrella Segobia:*** Cargó y preparó los datos para el análisis, calculó el análisis para la diversidad alfa. Realizó las curvas de rarefacción 
+
+***1. Estrella Segobia:*** Cargó y preparó los datos para el análisis, calculó el análisis para la diversidad alfa.
+Realizó y discutio las curvas de rarefacción.
+Contesto preguntas.
+
 ***2. David Flores:*** Calculó el análisis de diversidad beta e hizo las matrices
-***3. Daniela Villanueva:*** Redactó la introducción, contestó preguntas, generó las gráficas de abundancia, hizo las discusiones de las gráficas de abundancia, 
+
+***3. Daniela Villanueva:*** Redactó la introducción, contestó preguntas, generó las gráficas de abundancia, hizo las discusiones de las gráficas de abundancia,
