@@ -8,7 +8,7 @@ jaccard<-function(a,b){
   return(interseccion/union)
 }
 
-presencia<-read.csv("01_datos_crudos/datosjaccard.csv")
+presencia<-read.csv("Markdown/datos_crudos/datosjaccard.csv")
 presencia
 
 presencia$sitio1->a
