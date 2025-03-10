@@ -1,5 +1,8 @@
 #CURVAS DE RAREFACCION segun VEGAN
 
+library(tidyverse)
+abundancias <- read_csv("datos_crudos/abundancias.csv")
+
 #Cargar librerías necesarias
 library(vegan)
 
@@ -48,5 +51,21 @@ dev.off()
 png("resultados/curva_Happy_Face_vg.png")
 rarecurve(happy_face_vg, main = "Curva de Rarefacción Happy Face", col = "yellow")
 dev.off()
+
+
+
+#Grafica combinada
+png("resultados/todas_curvas_rf_bg.png")
+
+# Asignar colores diferentes a cada curva
+colores <- c("darkblue", "red", "orange", "green", "purple", "gray", "yellow")
+sitios <- c("Luna", "Corazón", "Naranjas", "Verdes", "Alfa", "VR", "Happy Face")
+
+# Graficar todas las curvas combinadas, con diferentes colores
+rarecurve(abundancias[, 2:12], col = colores, xlab = "Fichas extraídas", 
+          ylab = "Número de especies", main = "Curvas de Rarefacción Combinadas")
+#Añadir leyenda de identificacion
+legend("topright", legend = sitios, col = colores, lty = 1, pch = 1, title = "Sitios")
+dev.off ()
 
 
