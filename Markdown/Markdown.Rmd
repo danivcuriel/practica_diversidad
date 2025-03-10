@@ -427,7 +427,6 @@ A nosotros no nos gusta dividirnos los trabajos, entonces este reporte se realiz
 Realizó y discutio las curvas de rarefacción.
 Contesto preguntas.
 
-***2. David Flores:*** Calculó el análisis de diversidad beta e hizo las matrices, Redactó discusión de índice beta e índice alfa.
+***2. David Flores:*** Calculó el análisis de diversidad beta e hizo las matrices, Redactó discusión de índice beta e índice alfa. 
 
-***3. Daniela Villanueva:*** Formato MarkDown, Redactó la introducción, contestó preguntas, generó las gráficas de abundancia, hizo las discusiones de las gráficas de abundancia.
-Redactó discusión
+***3. Daniela Villanueva:*** Formato MarkDown, Redactó la introducción, contestó preguntas, generó las gráficas de abundancia, hizo las discusiones de las gráficas de abundancia. Redactó discusión
