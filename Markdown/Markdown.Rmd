@@ -145,6 +145,8 @@ zonas<-data.frame(
 library(knitr)
 kable(zonas,col.names=c("zona1","zona2","zona3","zona4","zona5","zona6","zona7"))
 ```
+Como se puede observar en la tabla, la diagonal tiene un valor de 1.0, esto es debido a que es la comparación de cada zona consigo misma, es decir, la **zona 1 vs zona 1**, **zona 2 vs zona 2** y así sucesivamente, de igual manera hay otros dos valores con 1 que corresponden a la comparación de la **zona 1 con la zona 7**, este valor es debido a que en estas dos zonas hay presencia de todas las especies registradas en el experimento, de acuerdo al índice de Jaccard, el valor igual a 1 significa que esas zonas son completamente iguales. 
+Para la discusión de este índice, se tomaron en cuenta los valores debajo de la diagonal para fines prácticos, aquí se observa un ampliio rango de valores, desde 0 hasta 1, los valores con 0.08 corresponden a la comparación con las zonas que solo tenían fichas de un solo color, de manera que al comararlos con las demás zonas, sale un valor bajo, que de acuerdo al índice de Jaccard, significa que estos dos sitios tienen muy poco en común en cuanto a la presencia de especies, fuera de esta comparación, los demás sitios tienen un rango de valores más estrecho, desde 0.1 a 0.8 los valores más bajos (**0.125**, **0.111** y **0.083**) corresponden a las comparaciones hechas con las zonas 3 y  4, que son las que tuvieron fichas de un solo color, mientras que los valores medios y altos corresponden a los demás sitios en donde hubo pocas diferencias en comparación a los resultados anteriormente descritos.
 
 #### Índice de Bray-Curtis
 ```{r}
@@ -182,64 +184,72 @@ library(knitr)
 kable(zonas1,col.names=c("zona1","zona2","zona3","zona4","zona5","zona6","zona7"))
 ```
 
-## Curvas de Rarefacción
+## **Curvas de Rarefacción**
 
 
-## Gráficas de Abundancia 
+### Gráficas de Abundancia 
 
 Las distribuciones de rango abundancia (DRA) son una herramienta poderosa para analizar los patrones de biodiversidad en las comunidades ecológicas. Las DRA representan la abundancia relativa de las especies, proporcionando información sobre la abundancia, la riqueza y la equidad (Foster & Dunstan, 2010). Estas distribuciones pueden modelarse estadísticamente para examinar cómo cambia la biodiversidad a través de gradientes ambientales (Foster & Dunstan, 2010; Dunstan et al., 2012). Las DRA se han utilizado para identificar puntos calientes de biodiversidad y áreas con un alto número de especies raras (Dunstan et al., 2012).
 
-### Gráfica de abundancias de la Bolsa Luna 
+#### **Gráfica de abundancias de la Bolsa Luna**
 ![En esta gráfica de abundancia de la bolsa luna, observamos una mayor diversidad de especies y una distribución más equilibrada de abundancias. La mayoría de las especies tienen valores similares, lo que evita una curva con dominancia marcada y da lugar a una distribución más uniforme.](graficas_abundancias/grafica_luna.jpeg)
 
-### Gráfica de abundancias de la Bolsa Corazón
+#### **Gráfica de abundancias de la Bolsa Corazón**
 ![En esta gráfica, observamos una menor diversidad de especies en comparación con otras bolsas. La abundancia está distribuida de manera desigual, con algunas especies dominantes, lo que se refleja en una curva que cae abruptamente.](graficas_abundancias/grafica_corazon.jpeg)
 
 
-### Gráfica de abundancias de Bolsa Naranja
+#### **Gráfica de abundancias de Bolsa Naranja**
 ![Las curvas de abundancia de las bolsas que contienen solo naranjas o verdes aparecen como una línea en lugar de una curva porque solo tienen una única categoría con abundancia distinta de cero. En estos casos, no hay una distribución de abundancias entre múltiples especies, sino que toda la abundancia está concentrada en una sola. Esto genera una línea plana en el "gráfico" o sea en la foto en lugar de una curva descendente, ya que no hay diferencias de equitatividad o dominancia dentro de la bolsa, solo una presencia exclusiva de una especie.](graficas_abundancias/grafica_naranja.jpeg)
 
-### Gráfica de abundancias de Bolsa Verde
+#### **Gráfica de abundancias de Bolsa Verde**
 ![](graficas_abundancias/grafica_verde.jpeg)
 
 
-### Gráfica de abundancias de la Bolsa Alfa
+#### **Gráfica de abundancias de la Bolsa Alfa**
 ![En esta gráfica, la caída abrupta es aún más marcada que en otros sitios. Aunque puede haber una mayor diversidad de especies, la abundancia está dominada por solo dos, mientras que el resto presenta valores mucho menores. La curva inicia con un pico alto, desciende rápidamente y luego se mantiene casi constante con abundancias bajas en las demás especies.](graficas_abundancias/grafica_alfa.jpeg)
 
 
-### Gráfica de abundancias de la Bolsa VR
+#### **Gráfica de abundancias de la Bolsa VR**
 ![En esta gráfica, la abundancia inicial se mantiene constante porque varias especies tienen valores similares antes de que la curva caiga abruptamente hacia las especies menos abundantes, con hasta un solo individuo. Aunque hay mayor diversidad que en otros sitios, la distribución no es completamente uniforme, lo que impide que la curva sea constante.](graficas_abundancias/grafica_VR.jpeg)
 
 
-### Gráfica de abundancias de la Bolsa Happy Face
+#### **Gráfica de abundancias de la Bolsa Happy Face**
 ![En esta gráfica, la abundancia se mantiene más constante en comparación con otros sitios, reflejando una mayor equitatividad entre las especies. Aunque la línea desciende al cambiar de especies, lo hace de manera gradual, sin caídas drásticas, lo que sugiere una distribución más balanceada de la abundancia.](graficas_abundancias/grafica_happyface.jpeg)
 
 
-### Discusión 
+## **Discusión** 
 
 
 ### Preguntas
-1. ¿Cómo varían los valores de los índices entre los sitios? ¿Qué diferencias resaltan? 
+**1. ¿Cómo varían los valores de los índices entre los sitios? ¿Qué diferencias resaltan?**
 Los valores entre los índices reflejan una diferencia significativa entre las bolsas (sitios). El **índice de Shannon** muestra que las bolsas como Luna, Happy_Face, Alfa, Corazón y VR tienen una alta diversidad, con valores cercanos a 2.3, lo que indica una distribución equilibrada de especies. En contraste, Naranjas y Verdes presentan un valor de 0, lo que sugiere la presencia de solo una especie dominante en esos sitios. El **índice de Simpson**, que mide la probabilidad de que dos individuos seleccionados al azar pertenezcan a la misma especie, sigue un patrón similar, con valores cercanos a 0.9 en las bolsas diversas, como Luna y VR, y 0 en las bolsas con baja diversidad.Finalmente, el **índice de Pielou**, que evalúa la equidad de la distribución de especies, muestra valores altos en las bolsas diversas (cerca de 2.3), mientras que las bolsas con baja diversidad, como Naranjas y Verdes, tienen un índice de 0, reflejando una distribución desigual en estas áreas.
 
-2. ¿Cuál índice es más sensible a especies raras?
-3. ¿Por qué el índice de Pielou nos da información sobre la equitatividad de la comunidad?
+**2. ¿Cuál índice es más sensible a especies raras?**
+**3. ¿Por qué el índice de Pielou nos da información sobre la equitatividad de la comunidad?**
 El índice de Pielou compara la diversidad que realmente hay en la comunidad con la diversidad "perfecta" que habría si todas las especies tuvieran la misma cantidad de invidviduos. Esto dice que tan "justamente" están repartidos los individuos entre las especies de una comunidad. Un valor de 1 significa que la repartición es equitativa y un valor bajo de 0 significa que algunas especies dominan sobre las demás.
 
-4. ¿Cuál sitio parece tener mayor diversidad según la curva de rarefacción? ¿Por qué?
-5. ¿Cómo afecta el tamaño de la muestra en la forma de la curva?
-6. ¿Cuál de estos índices es más sensible a la diferencia en abundancias?
-7. ¿Qué interpretación ecológica tienen las diferencias entre sitios?
-8. ¿Cómo interpretas la forma de las curvas de abundancia?
+**4. ¿Cuál sitio parece tener mayor diversidad según la curva de rarefacción? ¿Por qué?**
+
+**5. ¿Cómo afecta el tamaño de la muestra en la forma de la curva?**
+
+**6. ¿Cuál de estos índices es más sensible a la diferencia en abundancias?**
+
+**7. ¿Qué interpretación ecológica tienen las diferencias entre sitios?**
+
+**8. ¿Cómo interpretas la forma de las curvas de abundancia?**
 Las curvas de abundancia muestran una alta variabilidad entre los diversos sitios (bolsas), reflejando diferencias en la equitatividad y dominancia de las categorías. Algunas bolsas presentan distribuciones más uniformes, mientras que otras tienen una categoría dominante con valores cercanos a cero en las demás. Esto indica que la composición varía significativamente entre muestras, afectando la interpretación de la diversidad y posible estabilidad del sistema analizado.
 
-9. ¿Qué implicaciones tienen para la dominancia de especies?
-10. ¿Qué patrones generales observaste en la diversidad entre los sitios?
-11. ¿Cuál índice te pareció más útil y por qué?
-12. ¿Cómo podrías aplicar este análisis en estudios ecológicos reales?
+**9. ¿Qué implicaciones tienen para la dominancia de especies?**
+
+**10. ¿Qué patrones generales observaste en la diversidad entre los sitios?**
+
+**11. ¿Cuál índice te pareció más útil y por qué?**
+
+**12. ¿Cómo podrías aplicar este análisis en estudios ecológicos reales?**
 
 
-### Bibliografía 
+
+## **Bibliografía**
 - Foster, S. D., & Dunstan, P. K. (2010). The analysis of biodiversity using rank abundance distributions. Biometrics, 66(1), 186-195.
 - Dunstan, P. K., Bax, N. J., Foster, S. D., Williams, A., & Althaus, F. (2012). Identifying hotspots for biodiversity management using rank abundance distributions. Diversity and Distributions, 18(1), 22-32.
 - Gauthier, J., & Derome, N. (2020). Evenness-richness scatter plots: a graphical, intuitive approach to alpha diversity analysis. bioRxiv, 2020-09.
@@ -254,7 +264,7 @@ Las curvas de abundancia muestran una alta variabilidad entre los diversos sitio
 - Simberloff, D. (1978). Use of rarefaction and related methods in ecology. In Biological data in water pollution assessment: quantitative and statistical analyses. ASTM International.
 
 
-## Contribuciones del Equipo 
-1. Estrella Segobia: Cargó y preparó los datos para el análisis, calculó el análisis para la diversidad alfa. Realizó las curvas de rarefacción 
-2. David Flores: Calculó el análisis de diversidad beta e hizo las matrices
-3. Daniela Villanueva: Redactó la introducción, contestó preguntas, generó las gráficas de abundancia, hizo las discusiones de las gráficas de abundancia, 
+## **Contribuciones del Equipo**
+***1. Estrella Segobia:*** Cargó y preparó los datos para el análisis, calculó el análisis para la diversidad alfa. Realizó las curvas de rarefacción 
+***2. David Flores:*** Calculó el análisis de diversidad beta e hizo las matrices
+***3. Daniela Villanueva:*** Redactó la introducción, contestó preguntas, generó las gráficas de abundancia, hizo las discusiones de las gráficas de abundancia, 
