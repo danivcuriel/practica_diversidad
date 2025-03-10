@@ -1,0 +1,13 @@
+especie,sitio1,sitio2,sitio3,sitio4,sitio5,sitio6,sitio7
+rosa1,1,1,0,0,1,0,1
+rosa2,1,1,0,0,1,1,1
+rosa3,1,1,0,0,1,1,1
+naranja,1,1,1,0,0,1,1
+morado,1,1,0,0,0,1,1
+amarillo,1,1,0,0,0,0,1
+rojo,1,1,0,0,1,1,1
+verde_claro,1,0,0,1,1,1,1
+verde_osc,1,0,0,0,1,1,1
+azul1,1,0,0,0,1,1,1
+azul2,1,0,0,0,1,1,1
+azul3,1,1,0,0,1,1,1
