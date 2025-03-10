@@ -172,29 +172,29 @@ print(resultados)
 Las distribuciones de rango abundancia (DRA) son una herramienta poderosa para analizar los patrones de biodiversidad en las comunidades ecológicas. Las DRA representan la abundancia relativa de las especies, proporcionando información sobre la abundancia, la riqueza y la equidad (Foster & Dunstan, 2010). Estas distribuciones pueden modelarse estadísticamente para examinar cómo cambia la biodiversidad a través de gradientes ambientales (Foster & Dunstan, 2010; Dunstan et al., 2012). Las DRA se han utilizado para identificar puntos calientes de biodiversidad y áreas con un alto número de especies raras (Dunstan et al., 2012).
 
 ### Gráfica de abundancias de la Bolsa Luna 
-![En esta gráfica de abundancia de la bolsa luna, observamos una mayor diversidad de especies y una distribución más equilibrada de abundancias. La mayoría de las especies tienen valores similares, lo que evita una curva con dominancia marcada y da lugar a una distribución más uniforme.](graficas_abundancias/grabundancia_luna.jpeg)
+![En esta gráfica de abundancia de la bolsa luna, observamos una mayor diversidad de especies y una distribución más equilibrada de abundancias. La mayoría de las especies tienen valores similares, lo que evita una curva con dominancia marcada y da lugar a una distribución más uniforme.](graficas_abundancias/grafica_luna.jpeg)
 
 ### Gráfica de abundancias de la Bolsa Corazón
-![En esta gráfica, observamos una menor diversidad de especies en comparación con otras bolsas. La abundancia está distribuida de manera desigual, con algunas especies dominantes, lo que se refleja en una curva que cae abruptamente.](graficas_abundancias/bolsa_corazon.jpeg)
+![En esta gráfica, observamos una menor diversidad de especies en comparación con otras bolsas. La abundancia está distribuida de manera desigual, con algunas especies dominantes, lo que se refleja en una curva que cae abruptamente.](graficas_abundancias/grafica_corazon.jpeg)
 
 
 ### Gráfica de abundancias de Bolsa Naranja
-![Las curvas de abundancia de las bolsas que contienen solo naranjas o verdes aparecen como una línea en lugar de una curva porque solo tienen una única categoría con abundancia distinta de cero. En estos casos, no hay una distribución de abundancias entre múltiples especies, sino que toda la abundancia está concentrada en una sola. Esto genera una línea plana en el "gráfico" o sea en la foto en lugar de una curva descendente, ya que no hay diferencias de equitatividad o dominancia dentro de la bolsa, solo una presencia exclusiva de una especie.](graficas_abundancias/bolsa_naranja.jpeg)
+![Las curvas de abundancia de las bolsas que contienen solo naranjas o verdes aparecen como una línea en lugar de una curva porque solo tienen una única categoría con abundancia distinta de cero. En estos casos, no hay una distribución de abundancias entre múltiples especies, sino que toda la abundancia está concentrada en una sola. Esto genera una línea plana en el "gráfico" o sea en la foto en lugar de una curva descendente, ya que no hay diferencias de equitatividad o dominancia dentro de la bolsa, solo una presencia exclusiva de una especie.](graficas_abundancias/grafica_naranja.jpeg)
 
 ### Gráfica de abundancias de Bolsa Verde
-![](graficas_abundancias/bolsa_verde.jpeg)
+![](graficas_abundancias/grafica_verde.jpeg)
 
 
 ### Gráfica de abundancias de la Bolsa Alfa
-![En esta gráfica, la caída abrupta es aún más marcada que en otros sitios. Aunque puede haber una mayor diversidad de especies, la abundancia está dominada por solo dos, mientras que el resto presenta valores mucho menores. La curva inicia con un pico alto, desciende rápidamente y luego se mantiene casi constante con abundancias bajas en las demás especies.](graficas_abundancias/bolsa_alfa.jpeg)
+![En esta gráfica, la caída abrupta es aún más marcada que en otros sitios. Aunque puede haber una mayor diversidad de especies, la abundancia está dominada por solo dos, mientras que el resto presenta valores mucho menores. La curva inicia con un pico alto, desciende rápidamente y luego se mantiene casi constante con abundancias bajas en las demás especies.](graficas_abundancias/grafica_alfa.jpeg)
 
 
 ### Gráfica de abundancias de la Bolsa VR
-![En esta gráfica, la abundancia inicial se mantiene constante porque varias especies tienen valores similares antes de que la curva caiga abruptamente hacia las especies menos abundantes, con hasta un solo individuo. Aunque hay mayor diversidad que en otros sitios, la distribución no es completamente uniforme, lo que impide que la curva sea constante.](graficas_abundancias/bolsa_vr.jpeg)
+![En esta gráfica, la abundancia inicial se mantiene constante porque varias especies tienen valores similares antes de que la curva caiga abruptamente hacia las especies menos abundantes, con hasta un solo individuo. Aunque hay mayor diversidad que en otros sitios, la distribución no es completamente uniforme, lo que impide que la curva sea constante.](graficas_abundancias/grafica_VR.jpeg)
 
 
 ### Gráfica de abundancias de la Bolsa Happy Face
-![En esta gráfica, la abundancia se mantiene más constante en comparación con otros sitios, reflejando una mayor equitatividad entre las especies. Aunque la línea desciende al cambiar de especies, lo hace de manera gradual, sin caídas drásticas, lo que sugiere una distribución más balanceada de la abundancia.](graficas_abundancias/bolsa_happyfac.jpeg)
+![En esta gráfica, la abundancia se mantiene más constante en comparación con otros sitios, reflejando una mayor equitatividad entre las especies. Aunque la línea desciende al cambiar de especies, lo hace de manera gradual, sin caídas drásticas, lo que sugiere una distribución más balanceada de la abundancia.](graficas_abundancias/grafica_happyface.jpeg)
 
 
 ### Discusión 
