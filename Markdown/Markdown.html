@@ -405,7 +405,7 @@ la muestra (Simberloff, 1978). Estas curvas son herramientas clave para
 analizar la diversidad taxonómica, evaluar la heterogeneidad ambiental y
 comparar comunidades biológicas (Gart et al., 1982).</p>
 <p>En esta práctica, se calcularon los índices de Shannon, Pielou,
-Simpson, Simpson inverso, Gini y Chao para estimar la diversidad alfa.
+Simpson, Simpson inverso, Gini y Chao1 para estimar la diversidad alfa.
 Además, se generaron curvas de rarefacción y gráficos de abundancia
 ordenada para cada sitio. Finalmente, se calculó la diversidad beta
 mediante los índices de Jaccard y Bray-Curtis, con el objetivo de
@@ -431,48 +431,29 @@ abundancias</code></pre>
 </div>
 <div id="índices-de-diversidad-alfa" class="section level2">
 <h2>Índices de diversidad alfa</h2>
-<pre class="r"><code># CREAR FUNCIONES
-#Indice de Shannon
-shannon &lt;- function(abundancias) {
-  proba &lt;- abundancias / sum(abundancias)
-  proba &lt;- proba[proba &gt; 0]  # Eliminar ceros antes de calcular el logaritmo
-  return(-sum(proba * log(proba)))
-}
-
-
-#Indice de Simpson
-simpson &lt;- function(abundancias) {
-  prob &lt;- abundancias / sum(abundancias)
-  #Condicion de que si solo hay una especie, Simpson debe ser 1
-  if (length(prob) == 1) {
-    return(1)
-  }
-  return(1 - sum(prob^2))  
-}
-
-#Indice de Pielou
-pielou &lt;- function(abundancias) {
-  proba &lt;- abundancias / sum(abundancias)
-  proba &lt;- proba[proba &gt; 0]  # Eliminar valores 0
-  return(-sum(proba * log(proba))) 
-}</code></pre>
+<p>Para los índices alfa se utilizó la paquetería vegan para poder
+confirmar si nuestras funciones estaban bien…</p>
+<pre class="r"><code>library(vegan)</code></pre>
 <pre class="r"><code># Crear un data frame con los resultados
-resultados &lt;- data.frame(
+resultados_vg &lt;- data.frame(
   Bolsa = c(&quot;Luna&quot;, &quot;Corazon&quot;, &quot;Naranjas&quot;, &quot;Verdes&quot;, &quot;Alfa&quot;, &quot;VR&quot;, &quot;Happy_Face&quot;),
   Shannon = c(shannon_luna, shannon_corazon, shannon_naranjas, shannon_verdes, shannon_alfa, shannon_vr, shannon_happy_face),
+  Pielou = c(pielou_luna, pielou_corazon, pielou_naranjas, pielou_verdes, pielou_alfa, pielou_vr, pielou_happy_face),
   Simpson = c(simpson_luna, simpson_corazon, simpson_naranjas, simpson_verdes, simpson_alfa, simpson_vr, simpson_happy_face),
-  Pielou = c(pielou_luna, pielou_corazon, pielou_naranjas, pielou_verdes, pielou_alfa, pielou_vr, pielou_happy_face)
+  Simpson_Inverso = c(simpson_inv_luna, simpson_inv_corazon, simpson_inv_naranjas, simpson_inv_verdes, simpson_inv_alfa, simpson_inv_vr, simpson_inv_happy_face),
+  Chao1 = c(chao1_luna, chao1_corazon, chao1_naranjas, chao1_verdes, chao1_alfa, chao1_vr, chao1_happy_face)
 )
 
-print(resultados)</code></pre>
-<pre><code>##        Bolsa  Shannon   Simpson   Pielou
-## 1       Luna 2.341924 0.9005198 2.341924
-## 2    Corazon 1.719655 0.8012487 1.719655
-## 3   Naranjas 0.000000 0.0000000 0.000000
-## 4     Verdes 0.000000 0.0000000 0.000000
-## 5       Alfa 1.776449 0.7728532 1.776449
-## 6         VR 1.976349 0.8457031 1.976349
-## 7 Happy_Face 2.275237 0.8871528 2.275237</code></pre>
+# Ver el data frame con los resultados
+print(resultados_vg)</code></pre>
+<pre><code>##        Bolsa  Shannon    Pielou   Simpson Simpson_Inverso Chao1
+## 1       Luna 2.341924 0.9766581 0.9005198       10.052257    NA
+## 2    Corazon 1.719655 0.7171517 0.8012487        5.031414    NA
+## 3   Naranjas 0.000000 0.0000000 0.0000000        1.000000    NA
+## 4     Verdes 0.000000 0.0000000 0.0000000        1.000000    NA
+## 5       Alfa 1.776449 0.7408368 0.7728532        4.402439    NA
+## 6         VR 1.976349 0.8242016 0.8457031        6.481013    NA
+## 7 Happy_Face 2.275237 0.9488474 0.8871528        8.861538    NA</code></pre>
 </div>
 <div id="índices-de-diversidad-beta" class="section level2">
 <h2>Índices de diversidad beta</h2>
