@@ -164,12 +164,34 @@ print(resultados)
 
 ## Índices de diversidad beta
 #### Índice de Jaccard 
+La función se realizó con ayuda de el siguiente recurso de internet ([este de aquí!!](https://www.r-bloggers.com/2021/11/how-to-calculate-jaccard-similarity-in-r/)) y quedó de la siguiente manera, está organizado de manera que tome en cuenta los caracteres igual a 1 de cada uno de los vectores o en este caso columnas sin tomar en cuenta los 0, que alteraban el resultado.
 ```{r}
 jaccard<-function(a,b){
   interseccion=length(which(a==1 & b==1))
   union=length(which(a==1))+length(which(b==1))-interseccion
   return(interseccion/union)
 }
+```
+Se aplicó el índice a cada combinación de zonas o bolsas utilizadas para la práctica, es decir, **bolsa 1/zona 1** ***Vs*** **todas las demás** y así respectivamente con las demás zonas.
+El pimer paso fue delimitar las zonas para simplificar la sintaxis de la función, para eso se crearon zonas o sitios de la ***a*** a la ***g***:
+```{r}
+pre<- read.csv("Markdown/datos_crudos/datosjaccard.csv")
+pre$sitio1->a
+pre$sitio2->b
+pre$sitio3->c
+pre$sitio4->d
+pre$sitio5->e
+pre$sitio6->f
+pre$sitio7->g
+```
+Estos fueron los resultados de la zona 1
+```{r}
+jaccard(a,b)
+jaccard(a,c)
+jaccard(a,d)
+jaccard(a,e)
+jaccard(a,f)
+jaccard(a,g)
 ```
 
 #### Índice de Bray-Curtis
