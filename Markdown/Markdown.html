@@ -884,6 +884,43 @@ sugiere una distribución más balanceada de la abundancia.</div>
 </div>
 <div id="discusión" class="section level2">
 <h2><strong>Discusión</strong></h2>
+<p>En este reporte, utilizamos diversas herramientas para analizar la
+diversidad y abundancia de especies, combinando paquetes de R con
+funciones generadas en clase. Inicialmente, intentamos calcular los
+índices alfa con nuestra propia función, pero encontramos varios
+problemas, como la generación de valores NaN en algunos casos. Para
+resolverlo, recurrimos a diversas fuentes, incluyendo internet y
+asistencia con IA, para identificar si el error provenía de nuestro
+código o de la base de datos. A pesar de múltiples intentos de ajustar
+la función y modificar la base de datos, no logramos obtener los
+resultados esperados.</p>
+<p>Debido a estas dificultades, optamos por usar el paquete vegan, que
+nos permitió calcular los índices alfa de manera más eficiente. Con este
+paquete, analizamos la diversidad a través de distintos índices, como
+Shannon, Simpson, Pielou, Chao1, Gini y Simpson inverso. Cada uno de
+estos índices se enfoca en distintos aspectos de la diversidad:</p>
+<p>-<strong>Shannon</strong> mide la diversidad considerando tanto
+riqueza como equitatividad.</p>
+<p>-<strong>Simpson</strong> evalúa la dominancia de unas pocas
+especies.</p>
+<p>-<strong>Pielou</strong> indica qué tan equitativa es la distribución
+de especies.</p>
+<p>-<strong>Chao1</strong> estima la riqueza total, incluyendo especies
+no observadas.</p>
+<p>-<strong>Gini y Simpson inverso</strong> son variaciones que ayudan a
+entender la distribución de la abundancia.</p>
+<p>El uso del paquete vegan facilitó estos cálculos y nos permitió
+interpretar mejor las diferencias entre los índices, ayudándonos a
+comprender cómo cada uno refleja distintos aspectos de la
+biodiversidad.</p>
+<p>Por otro lado, al analizar las gráficas de abundancia, pudimos
+visualizar de manera clara las diferencias en diversidad entre los
+sitios. La representación gráfica nos permitió identificar rangos de
+abundancia y observar cómo algunas especies dominaban ciertos sitios
+mientras que otras tenían distribuciones más equitativas. Estas gráficas
+fueron clave para entender la estructura de las comunidades y resaltan
+la importancia de complementar los análisis numéricos con herramientas
+visuales para obtener una interpretación más completa de los datos.</p>
 <div id="preguntas" class="section level3">
 <h3>Preguntas</h3>
 <p><strong>1. ¿Cómo varían los valores de los índices entre los sitios?
@@ -966,9 +1003,39 @@ resistencia a condiciones adversas. También puede indicar alteraciones
 en el ecosistema que favorecen solo a ciertas especies.</p>
 <p><strong>10. ¿Qué patrones generales observaste en la diversidad entre
 los sitios?</strong></p>
+<p>Observamos que la diversidad varía significativamente entre los
+sitios (bolsas), con algunas comunidades dominadas por pocas especies y
+otras con una distribución más equitativa. En ciertos sitios, la curva
+de abundancia mostró una caída abrupta, lo que indica que una o pocas
+especies son dominantes, mientras que en otros la abundancia estuvo más
+distribuida. Además, los índices alfa reflejaron estas diferencias,
+mostrando valores más altos en sitios con mayor equitatividad y riqueza
+de especies.</p>
 <p><strong>11. ¿Cuál índice te pareció más útil y por qué?</strong></p>
+<p>En la diversidad beta, el índice más útil fue <em>Bray-Curtis</em>,
+ya que considera la abundancia de especies, proporcionando más
+información que <em>Jaccard</em>, el cual solo mide presencia y
+ausencia. Esto nos permitió detectar diferencias más detalladas entre
+comunidades.</p>
+<p>En la diversidad alfa, el índice más útil fue <em>Shannon</em>, ya
+que una de las ventajas que notamos fue que este índice considera tanto
+la abundancia como la riqueza de especies, y nos proporcionó una medida
+más completa de la diversidad alfa. Es más sensible a cambios, tanto en
+la abundancia relativa como en la riqueza de especies.</p>
 <p><strong>12. ¿Cómo podrías aplicar este análisis en estudios
 ecológicos reales?</strong></p>
+<p>Creemos que podría aplicarse en el monitoreo de ecosistemas ayudando
+a detectar cambios en la diversidad debido a impactos ambientales como
+la contaminación, la fragmentación de hábitats o el cambio climático.Por
+ejemplo en los cambios de diversidad que pueden ser señales de impactos
+ambientales. Por ejemplo, si en un ecosistema la diversidad empieza a
+disminuir, puede indicar que la contaminación está afectando la
+supervivencia de ciertas especies.La fragmentación de hábitats también
+puede reducir la cantidad de especies en un área, ya que muchas dependen
+de espacios amplios y conectados para sobrevivir. Al analizar estos
+cambios con índices de diversidad nos puede permitir entender mejor cómo
+están respondiendo los ecosistemas y tomar medidas para su
+conservación.</p>
 </div>
 </div>
 <div id="bibliografía" class="section level2">
@@ -1011,14 +1078,20 @@ and statistical analyses. ASTM International.</li>
 </div>
 <div id="contribuciones-del-equipo" class="section level2">
 <h2><strong>Contribuciones del Equipo</strong></h2>
+<p>A nosotros no nos gusta dividirnos los trabajos, entonces este
+reporte se realizó en colaboración en github, todos movimos de todo pero
+los puntos que pusimos par alas contribuciones personales fue en lo que
+más se enfocó cada quien.</p>
 <p><strong><em>1. Estrella Segobia:</em></strong> Cargó y preparó los
 datos para el análisis, calculó el análisis para la diversidad alfa.
 Realizó y discutio las curvas de rarefacción. Contesto preguntas.</p>
 <p><strong><em>2. David Flores:</em></strong> Calculó el análisis de
-diversidad beta e hizo las matrices</p>
-<p><strong><em>3. Daniela Villanueva:</em></strong> Redactó la
-introducción, contestó preguntas, generó las gráficas de abundancia,
-hizo las discusiones de las gráficas de abundancia,</p>
+diversidad beta e hizo las matrices, Redactó discusión de índice beta e
+índice alfa.</p>
+<p><strong><em>3. Daniela Villanueva:</em></strong> Formato MarkDown,
+Redactó la introducción, contestó preguntas, generó las gráficas de
+abundancia, hizo las discusiones de las gráficas de abundancia. Redactó
+discusión</p>
 </div>
 </div>
 
