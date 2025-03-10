@@ -190,11 +190,11 @@ Las distribuciones de rango abundancia (DRA) son una herramienta poderosa para a
 
 
 ### Gráfica de abundancias de la Bolsa VR
-![Texto alternativo](graficas_abundancias/bolsa_vr.jpeg)
+![En esta gráfica, la abundancia inicial se mantiene constante porque varias especies tienen valores similares antes de que la curva caiga abruptamente hacia las especies menos abundantes, con hasta un solo individuo. Aunque hay mayor diversidad que en otros sitios, la distribución no es completamente uniforme, lo que impide que la curva sea constante.](graficas_abundancias/bolsa_vr.jpeg)
 
 
 ### Gráfica de abundancias de la Bolsa Happy Face
-![Texto alternativo](graficas_abundancias/bolsa_happyfac.jpeg)
+![En esta gráfica, la abundancia se mantiene más constante en comparación con otros sitios, reflejando una mayor equitatividad entre las especies. Aunque la línea desciende al cambiar de especies, lo hace de manera gradual, sin caídas drásticas, lo que sugiere una distribución más balanceada de la abundancia.](graficas_abundancias/bolsa_happyfac.jpeg)
 
 
 ### Discusión 
@@ -213,7 +213,7 @@ El índice de Pielou compara la diversidad que realmente hay en la comunidad con
 6. ¿Cuál de estos índices es más sensible a la diferencia en abundancias?
 7. ¿Qué interpretación ecológica tienen las diferencias entre sitios?
 8. ¿Cómo interpretas la forma de las curvas de abundancia?
-Las curvas de abundancia muestran una alta variabilidad entre bolsas, reflejando diferencias en la equitatividad y dominancia de las categorías. Algunas bolsas presentan distribuciones más uniformes, mientras que otras tienen una categoría dominante con valores cercanos a cero en las demás. Esto indica que la composición varía significativamente entre muestras, afectando la interpretación de la diversidad y posible estabilidad del sistema analizado.
+Las curvas de abundancia muestran una alta variabilidad entre los diversos sitios (bolsas), reflejando diferencias en la equitatividad y dominancia de las categorías. Algunas bolsas presentan distribuciones más uniformes, mientras que otras tienen una categoría dominante con valores cercanos a cero en las demás. Esto indica que la composición varía significativamente entre muestras, afectando la interpretación de la diversidad y posible estabilidad del sistema analizado.
 
 9. ¿Qué implicaciones tienen para la dominancia de especies?
 10. ¿Qué patrones generales observaste en la diversidad entre los sitios?
@@ -239,4 +239,4 @@ Las curvas de abundancia muestran una alta variabilidad entre bolsas, reflejando
 ## Contribuciones del Equipo 
 1. Estrella Segobia: Cargó y preparó los datos para el análisis, calculó el análisis para la diversidad alfa. Realizó las curvas de rarefacción 
 2. David Flores: Calculó el análisis de diversidad beta e hizo las matrices
-3. Daniela Villanueva: Redactó la introducción, contestó preguntas, generó las gráficas de abundancia, hizo las discusiones de las gráficas de abundancia. 
+3. Daniela Villanueva: Redactó la introducción, contestó preguntas, generó las gráficas de abundancia, hizo las discusiones de las gráficas de abundancia, 
