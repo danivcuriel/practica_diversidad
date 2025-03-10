@@ -179,10 +179,10 @@ Las distribuciones de rango abundancia (DRA) son una herramienta poderosa para a
 
 
 ### Gráfica de abundancias de Bolsa Naranja
-![Texto alternativo](graficas_abundancias/bolsa_naranja.jpeg)
+![Las curvas de abundancia de las bolsas que contienen solo naranjas o verdes aparecen como una línea en lugar de una curva porque solo tienen una única categoría con abundancia distinta de cero. En estos casos, no hay una distribución de abundancias entre múltiples especies, sino que toda la abundancia está concentrada en una sola. Esto genera una línea plana en el "gráfico" o sea en la foto en lugar de una curva descendente, ya que no hay diferencias de equitatividad o dominancia dentro de la bolsa, solo una presencia exclusiva de una especie.](graficas_abundancias/bolsa_naranja.jpeg)
 
 ### Gráfica de abundancias de Bolsa Verde
-![Texto alternativo](graficas_abundancias/bolsa_verde.jpeg)
+![](graficas_abundancias/bolsa_verde.jpeg)
 
 
 ### Gráfica de abundancias de la Bolsa Alfa
